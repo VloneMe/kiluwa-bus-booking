@@ -1,0 +1,5860 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* ---break---   */
+@plugin "tailwindcss-animate";
+/* ---break---   */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --primary-bg: oklch(0.7 0.5 0.4); /* Original: #b3595d */
+  --primary-bg-fallback: oklch(1 0 0); /* Original: #ffffff */
+  --background: oklch(1.0000 0 0); /* Original: #ffffff */
+  --foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --card: oklch(1.0000 0 0); /* Original: #ffffff */
+  --card-foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --popover: oklch(1.0000 0 0); /* Original: #ffffff */
+  --popover-foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  /* --primary: #1a2a5e; Fallback for older browsers */
+  --primary: oklch(0.2831 0.0933 266.3179); /* Modern browsers */
+  --primary-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --secondary: oklch(0.9705 0.0054 274.9660); /* Original: #1f7a4a */
+  --secondary-foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --muted: oklch(0.9705 0.0054 274.9660); /* Original: #1f7a4a */
+  --muted-foreground: oklch(0.4629 0.0639 270.3317); /* Original: #64748b */
+  --accent: oklch(0.9705 0.0054 274.9660); /* Original: #1f7a4a */
+  --accent-foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --destructive: oklch(0.6368 0.2078 25.3313); /* Original: #dc2626 */
+  --destructive-foreground: oklch(0.9842 0.0034 247.8575); /* Original: #f8fafc */
+  --border: oklch(0.9288 0.0126 255.5078); /* Original: #e2e8f0 */
+  --input: oklch(0.9288 0.0126 255.5078); /* Original: #e2e8f0 */
+  --ring: oklch(0.2831 0.0933 266.3179); /* Original: #3b82f6 */
+  --focus: rgb(77, 111, 221);
+  --radius: 0.5rem;
+  --chart-1: oklch(0.2831 0.0933 266.3179); /* Original: #f87171 */
+  --chart-2: oklch(0.4629 0.0639 270.3317); /* Original: #10b981 */
+  --chart-3: oklch(0.6471 0.0476 272.3323); /* Original: #1e3a4f */
+  --chart-4: oklch(0.8125 0.0229 263.1740); /* Original: #facc15 */
+  --chart-5: oklch(0.9198 0.0152 273.8400); /* Original: #f59e0b */ --sidebar: oklch(1.0000 0 0); --sidebar-foreground: oklch(0.2831 0.0933 266.3179); --sidebar-primary: oklch(0.2831 0.0933 266.3179); --sidebar-primary-foreground: oklch(1.0000 0 0); --sidebar-accent: oklch(0.9705 0.0054 274.9660); --sidebar-accent-foreground: oklch(0.2831 0.0933 266.3179); --sidebar-border: oklch(0.9683 0.0069 247.8956); --sidebar-ring: oklch(0.2831 0.0933 266.3179); --font-sans: 'Inter', sans-serif; --font-serif: 'Georgia', serif; --font-mono: 'JetBrains Mono', monospace; --shadow-color: #142557; --shadow-opacity: 0.1; --shadow-blur: 10px; --shadow-spread: 0px; --shadow-offset-x: 0px; --shadow-offset-y: 4px; --letter-spacing: -0.01em; --spacing: 0.25rem; --shadow-2xs: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.05); --shadow-xs: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.05); --shadow-sm: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.10), 0px 1px 2px -1px hsl(224.7761 62.6168% 20.9804% / 0.10); --shadow: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.10), 0px 1px 2px -1px hsl(224.7761 62.6168% 20.9804% / 0.10); --shadow-md: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.10), 0px 2px 4px -1px hsl(224.7761 62.6168% 20.9804% / 0.10); --shadow-lg: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.10), 0px 4px 6px -1px hsl(224.7761 62.6168% 20.9804% / 0.10); --shadow-xl: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.10), 0px 8px 10px -1px hsl(224.7761 62.6168% 20.9804% / 0.10); --shadow-2xl: 0px 4px 10px 0px hsl(224.7761 62.6168% 20.9804% / 0.25); --tracking-normal: -0.01em;
+}
+
+.dark {
+  --background: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --card: oklch(0.3161 0.1002 266.3575); /* Original: #071126 */
+  --card-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --popover: oklch(0.3161 0.1002 266.3575); /* Original: #071126 */
+  --popover-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --primary: oklch(1.0000 0 0); /* Original: #3b82f6 */
+  --primary-foreground: oklch(0.2831 0.0933 266.3179); /* Original: #071126 */
+  --secondary: oklch(0.3582 0.1090 267.7654); /* Original: #1e293b */
+  --secondary-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --muted: oklch(0.3582 0.1090 267.7654); /* Original: #1e293b */
+  --muted-foreground: oklch(0.7137 0.0192 261.3246); /* Original: #94a3b8 */
+  --accent: oklch(0.3582 0.1090 267.7654); /* Original: #1e293b */
+  --accent-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --destructive: oklch(0.3958 0.1331 25.7230); /* Original: #7f1d1d */
+  --destructive-foreground: oklch(1.0000 0 0); /* Original: #f8fafc */
+  --border: oklch(0.3582 0.1090 267.7654); /* Original: #1e293b */
+  --input: oklch(0.3582 0.1090 267.7654); /* Original: #1e293b */
+  --ring: oklch(0.8717 0.0093 258.3382); /* Original: #2563eb */
+  --chart-1: oklch(1.0000 0 0); /* Original: #3b82f6 */
+  --chart-2: oklch(0.8125 0.0229 263.1740); /* Original: #10b981 */
+  --chart-3: oklch(0.6471 0.0476 272.3323); /* Original: #f59e0b */
+  --chart-4: oklch(0.4629 0.0639 270.3317); /* Original: #a855f7 */
+  --chart-5: oklch(0.3582 0.1090 267.7654); /* Original: #ef4444 */ --radius: 0.5rem; --sidebar: oklch(0.3161 0.1002 266.3575); --sidebar-foreground: oklch(1.0000 0 0); --sidebar-primary: oklch(1.0000 0 0); --sidebar-primary-foreground: oklch(0.2831 0.0933 266.3179); --sidebar-accent: oklch(0.3582 0.1090 267.7654); --sidebar-accent-foreground: oklch(1.0000 0 0); --sidebar-border: oklch(0.3582 0.1090 267.7654); --sidebar-ring: oklch(0.8717 0.0093 258.3382); --font-sans: 'Inter', sans-serif; --font-serif: 'Georgia', serif; --font-mono: 'JetBrains Mono', monospace; --shadow-color: #000000; --shadow-opacity: 0.4; --shadow-blur: 15px; --shadow-spread: 0px; --shadow-offset-x: 0px; --shadow-offset-y: 6px; --letter-spacing: -0.01em; --spacing: 0.25rem; --shadow-2xs: 0px 6px 15px 0px hsl(0 0% 0% / 0.20); --shadow-xs: 0px 6px 15px 0px hsl(0 0% 0% / 0.20); --shadow-sm: 0px 6px 15px 0px hsl(0 0% 0% / 0.40), 0px 1px 2px -1px hsl(0 0% 0% / 0.40); --shadow: 0px 6px 15px 0px hsl(0 0% 0% / 0.40), 0px 1px 2px -1px hsl(0 0% 0% / 0.40); --shadow-md: 0px 6px 15px 0px hsl(0 0% 0% / 0.40), 0px 2px 4px -1px hsl(0 0% 0% / 0.40); --shadow-lg: 0px 6px 15px 0px hsl(0 0% 0% / 0.40), 0px 4px 6px -1px hsl(0 0% 0% / 0.40); --shadow-xl: 0px 6px 15px 0px hsl(0 0% 0% / 0.40), 0px 8px 10px -1px hsl(0 0% 0% / 0.40); --shadow-2xl: 0px 6px 15px 0px hsl(0 0% 0% / 1.00);
+}
+
+/* ---break---   */  
+
+@theme inline {  
+  --color-background: var(--background);  
+  --color-foreground: var(--foreground);  
+  --color-card: var(--card);  
+  --color-card-foreground: var(--card-foreground);  
+  --color-popover: var(--popover);  
+  --color-popover-foreground: var(--popover-foreground);  
+  --color-primary: var(--primary);  
+  --color-primary-foreground: var(--primary-foreground);  
+  --color-secondary: var(--secondary);  
+  --color-secondary-foreground: var(--secondary-foreground);  
+  --color-muted: var(--muted);  
+  --color-muted-foreground: var(--muted-foreground);  
+  --color-accent: var(--accent);  
+  --color-accent-foreground: var(--accent-foreground);  
+  --color-destructive: var(--destructive);  
+  --color-destructive-foreground: var(--destructive-foreground);  
+  --color-border: var(--border);  
+  --color-input: var(--input);  
+  --color-ring: var(--ring);  
+  --color-chart-1: var(--chart-1);  
+  --color-chart-2: var(--chart-2);  
+  --color-chart-3: var(--chart-3);  
+  --color-chart-4: var(--chart-4);  
+  --color-chart-5: var(--chart-5);  
+  --radius-sm: calc(var(--radius) - 4px);  
+  --radius-md: calc(var(--radius) - 2px);  
+  --radius-lg: var(--radius);  
+  --radius-xl: calc(var(--radius) + 4px);  
+  --color-sidebar: var(--sidebar);  
+  --color-sidebar-foreground: var(--sidebar-foreground);  
+  --color-sidebar-primary: var(--sidebar-primary);  
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);  
+  --color-sidebar-accent: var(--sidebar-accent);  
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);  
+  --color-sidebar-border: var(--sidebar-border);  
+  --color-sidebar-ring: var(--sidebar-ring);  
+  --font-sans: 'Inter', sans-serif;  
+  --font-mono: 'JetBrains Mono', monospace;  
+  --font-serif: 'Georgia', serif;  
+  --radius: 0.5rem;  
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);  
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);  
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);  
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);  
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);  
+  --tracking-normal: var(--tracking-normal);  
+  --shadow-2xl: var(--shadow-2xl);  
+  --shadow-xl: var(--shadow-xl);  
+  --shadow-lg: var(--shadow-lg);  
+  --shadow-md: var(--shadow-md);  
+  --shadow: var(--shadow);  
+  --shadow-sm: var(--shadow-sm);  
+  --shadow-xs: var(--shadow-xs);  
+  --shadow-2xs: var(--shadow-2xs);  
+  --spacing: var(--spacing);  
+  --letter-spacing: var(--letter-spacing);  
+  --shadow-offset-y: var(--shadow-offset-y);  
+  --shadow-offset-x: var(--shadow-offset-x);  
+  --shadow-spread: var(--shadow-spread);  
+  --shadow-blur: var(--shadow-blur);  
+  --shadow-opacity: var(--shadow-opacity);  
+  --color-shadow-color: var(--shadow-color);  
+  --radius-2xl: calc(var(--radius) * 1.8);  
+  --radius-3xl: calc(var(--radius) * 2.2);  
+  --radius-4xl: calc(var(--radius) * 2.6);  
+}  
+
+/* ---break---   */  
+
+.ticket-container {  
+  max-width: 620px; 
+  margin: auto;  
+  padding: 20px;  
+}  
+
+@media (max-width: 768px) {  
+  .ticket-container {  
+      width: 90%; 
+      /* padding: 10px;   */
+  }  
+}  
+
+.pdf-container {  
+  width: 100%;  
+  height: auto;  
+}
+
+.your-class {  
+  background-color: var(--primary-bg-fallback);  
+  background-color: var(--primary-bg);  
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+html {  
+  scroll-behavior: smooth;  
+}
+
+/* --- Bus booking: search form & trip cards (uses theme tokens from :root) --- */
+@layer components {
+  /* Bus search form (hero + booking page) */
+  .bus-search-form {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: clamp(1rem, 2.8vw, 1.4rem) clamp(1rem, 2.2vw, 1.45rem);
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+    background: linear-gradient(
+      155deg,
+      color-mix(in oklch, var(--card) 92%, var(--primary)) 0%,
+      var(--card) 52%,
+      color-mix(in oklch, var(--card) 95%, var(--muted)) 100%
+    );
+    box-shadow: var(--shadow-lg);
+  }
+
+  .bus-search-form__header {
+    margin-bottom: clamp(0.85rem, 2vw, 1.15rem);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+  }
+
+  .bus-search-form__title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    font-size: clamp(1rem, 2.4vw, 1.22rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+
+  .bus-search-form__title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .bus-search-form__title-icon svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-search-form__subtitle {
+    margin: 0.4rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    max-width: 40rem;
+  }
+
+  .bus-search-form__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    align-items: end;
+  }
+
+  /* 2×2 on tablet avoids cramped four columns */
+  @media (min-width: 640px) {
+    .bus-search-form__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bus-search-form__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem 1rem;
+    }
+  }
+
+  .bus-search-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bus-search-form__label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.2;
+  }
+
+  .bus-search-form__error {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--destructive);
+  }
+
+  .bus-search-form__trigger {
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    border-color: color-mix(in oklch, var(--border) 60%, var(--primary));
+    background: color-mix(in oklch, var(--background) 85%, var(--card));
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .bus-search-form__trigger:hover {
+    border-color: color-mix(in oklch, var(--primary) 38%, var(--border));
+  }
+
+  .bus-search-form__trigger:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-search-form__date-trigger {
+    min-height: 2.75rem;
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: var(--radius-md);
+    border-color: color-mix(in oklch, var(--border) 60%, var(--primary));
+    background: color-mix(in oklch, var(--background) 85%, var(--card));
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .bus-search-form__date-trigger:hover {
+    border-color: color-mix(in oklch, var(--primary) 38%, var(--border));
+    background: color-mix(in oklch, var(--muted) 35%, var(--background));
+  }
+
+  .bus-search-form__date-trigger:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  /* Colors come from Button utilities (twMerge) — keep layout + type here */
+  .bus-search-form__submit {
+    width: 100%;
+    min-height: 2.75rem;
+    padding-block: 0.65rem;
+    padding-inline: 1.15rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-sm);
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease,
+      border-color 0.2s ease;
+  }
+
+  .bus-search-form__submit:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .bus-search-form__submit:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 80%, var(--primary)),
+      var(--shadow-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bus-search-form__submit {
+      transition: none;
+    }
+  }
+
+  .bus-search-form__popover {
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--border) 48%, var(--primary));
+    box-shadow: var(--shadow-lg);
+  }
+
+  .bus-search-form__popover-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .bus-search-form__quick-select {
+    width: 100%;
+  }
+
+  .bus-search-form__calendar-wrap {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+  }
+
+  .bus-search-form__filter-input {
+    margin-bottom: 0.45rem;
+    border-radius: var(--radius-md);
+    border-color: color-mix(in oklch, var(--border) 55%, var(--primary));
+    background: var(--background);
+  }
+
+  /* --- Bus ticket (lookup + printable card) --- */
+  .bus-ticket-shell {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .bus-ticket-shell--padded {
+    padding-block: 2rem 2.5rem;
+    padding-top: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bus-ticket-shell--padded {
+      padding-top: 6rem;
+    }
+  }
+
+  .bus-ticket-shell__inner {
+    width: 100%;
+    max-width: min(100%, 36rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bus-ticket-shell__inner--wide {
+      max-width: min(100%, 42rem);
+    }
+  }
+
+  .bus-ticket-lookup {
+    width: 100%;
+    padding: 1rem 1.05rem 1.1rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--card) 93%, var(--primary)) 0%,
+      var(--card) 100%
+    );
+    box-shadow: var(--shadow-md);
+  }
+
+  .bus-ticket-lookup__title {
+    margin: 0 0 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .bus-ticket-lookup__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 480px) {
+    .bus-ticket-lookup__row {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  .bus-ticket-lookup__input {
+    flex: 1;
+    min-width: 0;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    border-color: color-mix(in oklch, var(--border) 55%, var(--primary));
+    background: var(--background);
+    font-weight: 600;
+  }
+
+  .bus-ticket-lookup__submit {
+    flex-shrink: 0;
+    min-height: 2.75rem;
+    padding-inline: 1.15rem;
+    font-weight: 700;
+  }
+
+  .bus-ticket-lookup__error {
+    margin: 0.55rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--destructive);
+  }
+
+  .bus-ticket-blessing {
+    margin: 0;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: color-mix(in oklch, var(--primary) 35%, var(--foreground));
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+  }
+
+  .bus-ticket-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    border: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklch, var(--primary) 45%, transparent) 20%,
+      color-mix(in oklch, var(--primary) 45%, transparent) 80%,
+      transparent
+    );
+  }
+
+  /* Printable / screenshot card — solid-ish bg reads well in PDF */
+  .bus-ticket-card {
+    width: 100%;
+    position: relative;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+    background: linear-gradient(
+      185deg,
+      color-mix(in oklch, #f8f8f8 88%, var(--primary)) 0%,
+      #efefef 42%,
+      #ebebeb 100%
+    );
+    color: #171717;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+
+  .bus-ticket-card::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
+    background-image: url("/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: min(26rem, 86%);
+    opacity: 0.06;
+    transform: rotate(-14deg);
+    filter: grayscale(1) contrast(1.05);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Boost watermark specifically during PDF export */
+  .bus-ticket-card.bus-ticket-card--export::before {
+    opacity: 0.18;
+    background-size: min(28rem, 92%);
+    filter: grayscale(1) contrast(1.15);
+    mix-blend-mode: multiply;
+  }
+
+  .bus-ticket-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    position: relative;
+    z-index: 1;
+  }
+
+  .bus-ticket-card__logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 22%, transparent);
+  }
+
+  .bus-ticket-card__brand {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .bus-ticket-card__company {
+    margin: 0;
+    font-size: clamp(0.85rem, 2.8vw, 1.05rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .bus-ticket-card__route {
+    margin: 0.25rem 0 0;
+    font-size: clamp(0.65rem, 2vw, 0.8rem);
+    font-weight: 600;
+    line-height: 1.35;
+    opacity: 0.95;
+    word-break: break-word;
+  }
+
+  .bus-ticket-card__body {
+    padding: 0.85rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bus-ticket-card__contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: #262626;
+  }
+
+  .bus-ticket-card__contact svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: color-mix(in oklch, var(--primary) 55%, #404040);
+  }
+
+  .bus-ticket-card__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid color-mix(in oklch, var(--primary) 16%, #d4d4d4);
+    align-items: start;
+  }
+
+  .bus-ticket-card__row--locations {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bus-ticket-card__row--full {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Right column: align label + values to the right */
+  .bus-ticket-card__row:not(.bus-ticket-card__row--full) > :nth-child(2) {
+    text-align: right;
+  }
+
+  .bus-ticket-card__label {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #525252;
+  }
+
+  .bus-ticket-card__value {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+    word-break: break-word;
+  }
+
+  .bus-ticket-card__value--end {
+    text-align: right;
+  }
+
+  .bus-ticket-card__value--center {
+    text-align: center;
+  }
+
+  .bus-ticket-card__value--muted {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #404040;
+  }
+
+  .bus-ticket-card__status--ok {
+    color: color-mix(in oklch, #15803d 85%, #171717);
+  }
+
+  .bus-ticket-card__status--pending {
+    color: color-mix(in oklch, #a16207 90%, #171717);
+  }
+
+  .bus-ticket-card__status--bad {
+    color: color-mix(in oklch, var(--destructive) 75%, #171717);
+  }
+
+  .bus-ticket-card__passenger {
+    margin: 0;
+    padding: 0.75rem 0.5rem 0.25rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    color: #0a0a0a;
+  }
+
+  .bus-ticket-card__qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0 0.25rem;
+  }
+
+  .bus-ticket-card__qr img {
+    width: min(9rem, 70vw);
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 20%, #d4d4d4);
+    background: #fff;
+    padding: 0.35rem;
+  }
+
+  .bus-ticket-card__qr-caption {
+    margin: 0;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #525252;
+  }
+
+  .bus-ticket-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .bus-ticket-actions__btn {
+    min-height: 2.85rem;
+    padding-inline: 1.35rem;
+    font-weight: 700;
+    gap: 0.5rem;
+  }
+
+  .bus-ticket-footnote {
+    margin: 0;
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    max-width: 22rem;
+  }
+
+  .bus-ticket-footnote strong {
+    font-weight: 700;
+    color: color-mix(in oklch, var(--foreground) 70%, var(--muted-foreground));
+  }
+
+  /* Per-trip card inside accordion (matches BusItem) */
+  .bus-item-surface {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+    background: linear-gradient(
+      145deg,
+      var(--card) 0%,
+      color-mix(in oklch, var(--card) 93%, var(--primary)) 100%
+    );
+    box-shadow: var(--shadow-md);
+    transition:
+      box-shadow 0.28s ease,
+      border-color 0.28s ease,
+      transform 0.2s ease;
+  }
+
+  .bus-item-surface:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .bus-item-surface[data-state="open"] {
+    border-color: color-mix(in oklch, var(--primary) 38%, transparent);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Mobile comfort: entire /booking flow */
+  @media (max-width: 767.98px) {
+    .bus-booking-flow--mobile-comfort .bus-search-form {
+      padding: clamp(1.1rem, 3.5vw, 1.45rem) clamp(1.05rem, 3.2vw, 1.45rem);
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-search-form__title {
+      font-size: clamp(1.1rem, 3.6vw, 1.32rem);
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-search-form__subtitle {
+      font-size: 0.92rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-search-form__label {
+      font-size: 0.72rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-search-form__submit {
+      min-height: 3rem;
+      font-size: 0.95rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .text-sm {
+      font-size: 0.95rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .text-xs {
+      font-size: 0.82rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .text-base {
+      font-size: 1.05rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .text-xl {
+      font-size: 1.35rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .text-\[0\.65rem\] {
+      font-size: 0.72rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .px-4 {
+      padding-left: 1.1rem;
+      padding-right: 1.1rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-booking-trip-summary .py-3 {
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+    }
+
+    .bus-booking-flow--mobile-comfort .bus-item-surface {
+      padding: 1.1rem;
+    }
+  }
+
+  .bus-passenger-panel {
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--primary) 16%, transparent);
+    background: color-mix(in oklch, var(--card) 88%, var(--muted));
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent);
+  }
+
+  /* BusSeatInfo: price + availability strip in trip card header */
+  .bus-seat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    min-height: 100%;
+    padding-top: 0.65rem;
+    border-top: 1px dashed color-mix(in oklch, var(--primary) 28%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .bus-seat-info {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.25rem;
+      padding-top: 0;
+      padding-left: 1rem;
+      border-top: none;
+      border-left: 1px dashed color-mix(in oklch, var(--primary) 28%, transparent);
+    }
+  }
+
+  .bus-seat-info__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .bus-seat-info__row {
+      flex-wrap: nowrap;
+      width: auto;
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  .bus-seat-info__badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    min-width: 5.25rem;
+    padding: 0.6rem 0.85rem 0.65rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--primary) 20%, transparent);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--card) 93%, var(--primary)) 0%,
+      var(--card) 100%
+    );
+    box-shadow: var(--shadow-xs);
+  }
+
+  .bus-seat-info--scarce .bus-seat-info__badge {
+    border-color: color-mix(in oklch, var(--destructive) 32%, transparent);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--card) 90%, var(--destructive)) 0%,
+      var(--card) 100%
+    );
+  }
+
+  .bus-seat-info--full .bus-seat-info__badge {
+    border-color: color-mix(in oklch, var(--muted-foreground) 22%, transparent);
+    opacity: 0.92;
+  }
+
+  .bus-seat-info__count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: var(--primary);
+  }
+
+  .bus-seat-info--scarce .bus-seat-info__count {
+    color: var(--destructive);
+  }
+
+  .bus-seat-info--full .bus-seat-info__count {
+    color: var(--muted-foreground);
+  }
+
+  .bus-seat-info__count svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .bus-seat-info__stat-label {
+    margin: 0;
+    max-width: 8.5rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--muted-foreground);
+  }
+
+  .bus-seat-info__hint {
+    margin: 0;
+    flex: 1 1 12rem;
+    min-width: 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+  }
+
+  .bus-seat-info--scarce .bus-seat-info__hint {
+    color: color-mix(in oklch, var(--destructive) 72%, var(--foreground));
+    font-weight: 600;
+  }
+
+  .bus-seat-info--full .bus-seat-info__hint {
+    color: var(--muted-foreground);
+  }
+
+  .bus-seat-info__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .bus-seat-info__actions {
+      align-items: flex-end;
+      width: auto;
+      min-width: min(100%, 11rem);
+    }
+  }
+
+  .bus-seat-info__price-wrap {
+    text-align: center;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .bus-seat-info__price-wrap {
+      text-align: right;
+    }
+  }
+
+  .bus-seat-info__price-label {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .bus-seat-info__price {
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-seat-info__price-unit {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    margin-left: 0.2rem;
+  }
+
+  .bus-seat-info__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-xs);
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .bus-seat-info__cta:hover {
+    background: color-mix(in oklch, var(--primary) 86%, var(--foreground));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-seat-info__cta:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .bus-seat-info__cta[data-state="open"] {
+    background: color-mix(in oklch, var(--primary) 78%, var(--muted));
+    box-shadow: inset 0 1px 2px color-mix(in oklch, var(--foreground) 12%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .bus-seat-info__cta {
+      width: auto;
+      min-width: 9.75rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bus-seat-info__cta {
+      transition: none;
+    }
+  }
+
+  /* BusInfo / BookingDetails — trip card column */
+  .bus-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed color-mix(in oklch, var(--primary) 28%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .bus-info {
+      padding-bottom: 0;
+      padding-right: 1rem;
+      border-bottom: none;
+      border-right: 1px dashed color-mix(in oklch, var(--primary) 28%, transparent);
+    }
+  }
+
+  .bus-info__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .bus-info__company {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: color-mix(in oklch, var(--primary) 38%, var(--foreground));
+  }
+
+  .bus-info__trip {
+    margin: 0;
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--foreground);
+  }
+
+  .bus-info__via {
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+
+  .bus-info__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .bus-info__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.85rem;
+    padding: 0.2rem 0.65rem 0.25rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    border: 1px solid color-mix(in oklch, var(--border) 55%, var(--primary));
+    background: color-mix(in oklch, var(--muted) 40%, transparent);
+    color: var(--muted-foreground);
+  }
+
+  .bus-info__chip--plate {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+    color: var(--foreground);
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-info__brand-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem 0.85rem;
+  }
+
+  .bus-info__brand {
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-info__amenities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .bus-info__amenity {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+    background: color-mix(in oklch, var(--primary) 10%, transparent);
+    color: var(--primary);
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .bus-info__amenity:hover {
+    background: color-mix(in oklch, var(--primary) 16%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 28%, transparent);
+  }
+
+  .bus-info__amenity:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-info__amenity svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-info__amenity--fallback {
+    width: auto;
+    min-width: 2.35rem;
+    padding-inline: 0.45rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .bus-info__route {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.65rem 0;
+    padding: 0.65rem 0.75rem 0.7rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: color-mix(in oklch, var(--card) 88%, var(--muted));
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent);
+  }
+
+  .bus-info__route-leg {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .bus-info__route-leg:not(:last-child) {
+    padding-right: 0.75rem;
+    margin-right: 0.75rem;
+    border-right: 1px solid color-mix(in oklch, var(--primary) 16%, var(--border));
+  }
+
+  @media (max-width: 420px) {
+    .bus-info__route {
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .bus-info__route-leg:not(:last-child) {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: none;
+      padding-bottom: 0.55rem;
+      margin-bottom: 0.1rem;
+      border-bottom: 1px dashed color-mix(in oklch, var(--primary) 18%, var(--border));
+    }
+  }
+
+  @media (min-width: 421px) {
+    .bus-info__route {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .bus-info__route-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.85rem;
+    height: 1.85rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+
+  .bus-info__route-icon--to {
+    background: color-mix(in oklch, var(--destructive) 10%, transparent);
+    color: color-mix(in oklch, var(--destructive) 78%, var(--foreground));
+  }
+
+  .bus-info__route-icon svg {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-info__route-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bus-info__route-label {
+    display: block;
+    margin-bottom: 0.1rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.2;
+  }
+
+  .bus-info__route-place {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--foreground);
+    word-break: break-word;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bus-info__amenity {
+      transition: none;
+    }
+  }
+
+  /* BusTiming: departure — journey — arrival */
+  .bus-timing {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 0.35rem 0 0;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .bus-timing {
+      padding-top: 0;
+      gap: 0.75rem;
+    }
+  }
+
+  .bus-timing__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 0.5rem 0.65rem;
+    width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .bus-timing__grid {
+      gap: 0.5rem 1rem;
+    }
+  }
+
+  .bus-timing__point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .bus-timing__point--depart {
+    grid-column: 1;
+  }
+
+  .bus-timing__point--arrive {
+    grid-column: 3;
+  }
+
+  .bus-timing__point-label {
+    order: 2;
+    margin: 0;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.2;
+  }
+
+  .bus-timing__time-wrap {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bus-timing__time-wrap {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.15rem 0.35rem;
+    }
+  }
+
+  .bus-timing__time {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--foreground);
+  }
+
+  .bus-timing__point--depart .bus-timing__time {
+    color: color-mix(in oklch, var(--primary) 42%, var(--foreground));
+  }
+
+  .bus-timing__period {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    line-height: 1.2;
+  }
+
+  .bus-timing__bridge {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-width: 4.5rem;
+  }
+
+  .bus-timing__track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .bus-timing__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    background: color-mix(in oklch, var(--primary) 75%, var(--foreground));
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-timing__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: color-mix(in oklch, var(--primary) 55%, var(--muted-foreground));
+  }
+
+  .bus-timing__arrow svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-timing__pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: color-mix(in oklch, var(--destructive) 55%, var(--foreground));
+  }
+
+  .bus-timing__pin svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-timing__duration {
+    margin: 0;
+    padding: 0.2rem 0.55rem 0.25rem;
+    border-radius: 9999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 100%;
+    color: color-mix(in oklch, var(--destructive) 78%, var(--foreground));
+    background: color-mix(in oklch, var(--destructive) 9%, transparent);
+    border: 1px solid color-mix(in oklch, var(--destructive) 22%, transparent);
+  }
+
+  .bus-timing__date-row {
+    margin: 0;
+    padding: 0.5rem 0.65rem 0.55rem;
+    border-radius: var(--radius-md);
+    border: 1px dashed color-mix(in oklch, var(--primary) 24%, transparent);
+    background: color-mix(in oklch, var(--muted) 45%, transparent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+    color: var(--muted-foreground);
+  }
+
+  .bus-timing--invalid .bus-timing__time,
+  .bus-timing--invalid .bus-timing__duration,
+  .bus-timing--invalid .bus-timing__date-row {
+    color: var(--muted-foreground);
+  }
+
+  /* --- Bus seat map (BusSeats) --- */
+  .bus-seats-shell {
+    width: 100%;
+    max-width: min(100%, 26rem);
+    margin-inline: auto;
+  }
+
+  .bus-seats-card {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 16%, transparent);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--card) 97%, var(--primary)) 0%,
+      var(--card) 40%
+    );
+    box-shadow: var(--shadow-md);
+    padding: 0.85rem 0.75rem 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .bus-seats-card {
+      padding: 1rem 1rem 1.1rem;
+    }
+  }
+
+  .bus-seats-legend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem 0.35rem;
+    margin-bottom: 0.85rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklch, var(--muted) 58%, transparent);
+    border: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+  }
+
+  .bus-seats-legend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--muted-foreground);
+  }
+
+  @media (min-width: 400px) {
+    .bus-seats-legend-item {
+      font-size: 0.7rem;
+    }
+  }
+
+  .bus-seats-legend-swatch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 1.85rem;
+    border-radius: var(--radius-md) var(--radius-md) 0.2rem 0.2rem;
+    border: 2px solid transparent;
+  }
+
+  .bus-seats-legend-swatch--available {
+    border-color: color-mix(in oklch, var(--primary) 38%, transparent);
+    background: color-mix(in oklch, var(--primary) 20%, transparent);
+    color: var(--primary);
+  }
+
+  .bus-seats-legend-swatch--selected {
+    border-color: color-mix(in oklch, var(--green-700) 45%, transparent);
+    background: color-mix(in oklch, var(--green-700) 30%, transparent);
+    color: var(--secondary-foreground);
+  }
+
+  .bus-seats-legend-swatch--taken {
+    border-color: color-mix(in oklch, var(--destructive) 42%, transparent);
+    background: color-mix(in oklch, var(--destructive) 18%, transparent);
+    color: var(--destructive);
+  }
+
+  .bus-seats-heading {
+    margin: 0 0 0.65rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .bus-seats-front {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px dashed color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-seats-front-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: var(--radius-md);
+    padding: 0.35rem 0.55rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    background: color-mix(in oklch, var(--muted) 50%, transparent);
+    border: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  }
+
+  .bus-seats-driver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    padding: 0.35rem 0.55rem;
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 10%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-seats-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .bus-seats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0.35rem;
+    min-height: 2.85rem;
+    padding: 0.4rem 0.35rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--muted) 42%, transparent);
+    border: 1px solid color-mix(in oklch, var(--border) 35%, transparent);
+  }
+
+  .bus-seat {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 3.25rem;
+    height: 2.65rem;
+    border-radius: var(--radius-md) var(--radius-md) 0.2rem 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease,
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .bus-seat__icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    opacity: 0.88;
+  }
+
+  .bus-seat__label {
+    position: absolute;
+    top: 0.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 1.15rem;
+    padding: 0.05rem 0.28rem;
+    border-radius: 0.2rem;
+    font-size: 0.58rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+  }
+
+  .bus-seat--empty {
+    border: 1px dashed color-mix(in oklch, var(--border) 55%, transparent);
+    background: color-mix(in oklch, var(--muted) 72%, transparent);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .bus-seat--empty .bus-seat__icon {
+    opacity: 0;
+  }
+
+  .bus-seat--available {
+    border: 2px solid color-mix(in oklch, var(--primary) 38%, transparent);
+    background: color-mix(in oklch, var(--primary) 16%, transparent);
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .bus-seat--available:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-seat--selected {
+    border: 2px solid color-mix(in oklch, var(--secondary) 48%, transparent);
+    background: color-mix(in oklch, var(--secondary) 26%, transparent);
+    color: var(--secondary-foreground);
+    cursor: pointer;
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--secondary) 22%, transparent);
+  }
+
+  .bus-seat--selected:hover {
+    transform: translateY(-1px);
+  }
+
+  .bus-seat--taken {
+    border: 2px solid color-mix(in oklch, var(--destructive) 40%, transparent);
+    background: color-mix(in oklch, var(--destructive) 14%, transparent);
+    color: var(--destructive);
+    cursor: not-allowed;
+    opacity: 0.92;
+  }
+
+  .bus-seat--available .bus-seat__label,
+  .bus-seat--selected .bus-seat__label {
+    background: color-mix(in oklch, var(--card) 88%, transparent);
+    color: var(--foreground);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+  }
+
+  .bus-seat--selected .bus-seat__label {
+    border-color: color-mix(in oklch, var(--secondary) 35%, transparent);
+    color: var(--secondary-foreground);
+    background: color-mix(in oklch, var(--secondary) 22%, transparent);
+  }
+
+  .bus-seat--taken .bus-seat__label {
+    background: color-mix(in oklch, var(--card) 85%, transparent);
+    color: var(--destructive);
+    border: 1px solid color-mix(in oklch, var(--destructive) 35%, transparent);
+  }
+
+  button.bus-seat:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  button.bus-seat:disabled.bus-seat--taken {
+    opacity: 0.92;
+  }
+
+  /* --- Passenger form per seat (BusSeatsForm) --- */
+  .bus-passenger-form {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+    background: var(--card);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .bus-passenger-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: linear-gradient(
+      95deg,
+      color-mix(in oklch, var(--primary) 9%, transparent) 0%,
+      color-mix(in oklch, var(--card) 97%, var(--primary)) 55%
+    );
+  }
+
+  .bus-passenger-form-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-passenger-form-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.15rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--primary-foreground);
+    background: var(--primary);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .bus-passenger-form-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 1.25rem;
+    padding: 1rem 1rem 1.15rem;
+  }
+
+  @media (min-width: 768px) {
+    .bus-passenger-form-body {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 1.1rem 1.15rem 1.25rem;
+    }
+  }
+
+  .bus-passenger-field-hint {
+    margin-top: 0.2rem;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    color: var(--muted-foreground);
+  }
+
+  .bus-passenger-required {
+    color: var(--destructive);
+    font-weight: 700;
+    margin-inline-start: 0.15rem;
+  }
+
+  .bus-passenger-input {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid color-mix(in oklch, var(--input) 80%, transparent) !important;
+    background: var(--card) !important;
+  }
+
+  .bus-passenger-input:focus-visible {
+    border-color: color-mix(in oklch, var(--ring) 55%, transparent) !important;
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--ring) 25%, transparent);
+  }
+
+  .bus-passenger-input.border-destructive,
+  .bus-passenger-input[aria-invalid="true"] {
+    border-color: color-mix(in oklch, var(--destructive) 50%, transparent) !important;
+  }
+
+  select.bus-passenger-input {
+    cursor: pointer;
+    line-height: 1.45;
+    padding-block: 0.5rem;
+  }
+
+  .bus-passenger-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .bus-passenger-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.2;
+  }
+
+  .bus-passenger-error {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--destructive);
+  }
+
+  .bus-passenger-form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 0 0.25rem;
+  }
+
+  .bus-passenger-form-card {
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--border) 50%, var(--primary));
+    background: color-mix(in oklch, var(--card) 94%, var(--muted));
+    overflow: hidden;
+  }
+
+  .bus-passenger-form-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0.55rem 0.85rem 0.6rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--primary) 12%, var(--border));
+    background: color-mix(in oklch, var(--card) 88%, var(--muted));
+  }
+
+  .bus-passenger-form-card__title {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--foreground);
+  }
+
+  .bus-passenger-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem 1rem;
+    border-top: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+    background: color-mix(in oklch, var(--muted) 32%, var(--card));
+  }
+
+  .bus-passenger-form-actions--split {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 520px) {
+    .bus-passenger-form-actions--split {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .bus-passenger-form-submit {
+      width: 100%;
+      order: -1;
+    }
+  }
+
+  .bus-passenger-form-submit {
+    min-width: min(100%, 12rem);
+    font-weight: 700;
+  }
+
+  /* --- Home: today’s routes (BusRoutes) --- */
+  .bus-routes-page {
+    padding-top: clamp(4.5rem, 14vw, 9rem);
+    padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .bus-routes-hero {
+    position: relative;
+    margin-inline: auto;
+    margin-bottom: 1.75rem;
+    max-width: 36rem;
+    text-align: center;
+  }
+
+  .bus-routes-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-routes-hero-title {
+    margin: 0;
+    font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    line-height: 1.2;
+  }
+
+  .bus-routes-hero-lines {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+  }
+
+  .bus-routes-hero-line {
+    height: 3px;
+    width: min(5.5rem, 28vw);
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--primary) 70%, transparent),
+      color-mix(in oklch, var(--secondary) 65%, transparent),
+      color-mix(in oklch, var(--accent) 55%, transparent)
+    );
+  }
+
+  .bus-routes-hero-sub {
+    margin: 0.65rem auto 0;
+    max-width: 26rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+  }
+
+  .bus-routes-state {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+    background: color-mix(in oklch, var(--card) 94%, var(--muted));
+    padding: clamp(2rem, 5vw, 3rem) 1.25rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-routes-state--loading {
+    border-color: color-mix(in oklch, var(--primary) 16%, transparent);
+    background: color-mix(in oklch, var(--card) 90%, var(--muted));
+  }
+
+  .bus-routes-state--error {
+    border-color: color-mix(in oklch, var(--destructive) 35%, transparent);
+    background: color-mix(in oklch, var(--destructive) 6%, transparent);
+  }
+
+  .bus-routes-state--empty {
+    border-style: dashed;
+    border-color: color-mix(in oklch, var(--primary) 26%, transparent);
+    background: color-mix(in oklch, var(--muted) 48%, transparent);
+  }
+
+  .bus-routes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .bus-routes-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.15rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bus-routes-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .bus-routes-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+    background: var(--card);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition:
+      box-shadow 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .bus-routes-card:hover {
+    border-color: color-mix(in oklch, var(--primary) 32%, transparent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .bus-routes-card-body {
+    padding: 1rem 1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .bus-routes-trip-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: start;
+    gap: 0.5rem 0.35rem;
+  }
+
+  .bus-routes-endpoint {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .bus-routes-endpoint--from {
+    text-align: left;
+  }
+
+  .bus-routes-endpoint--to {
+    text-align: right;
+  }
+
+  .bus-routes-endpoint-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    margin-bottom: 0.2rem;
+  }
+
+  .bus-routes-endpoint-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--foreground);
+    word-break: break-word;
+  }
+
+  .bus-routes-endpoint-time {
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    line-height: 1.3;
+  }
+
+  .bus-routes-seats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-top: 0.15rem;
+  }
+
+  .bus-routes-seats-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 11%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-routes-seats-caption {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    text-align: center;
+    max-width: 4.5rem;
+    line-height: 1.2;
+  }
+
+  .bus-routes-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: var(--radius-md);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    background: color-mix(in oklch, var(--secondary) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--secondary) 28%, transparent);
+  }
+
+  .bus-routes-meta-sep {
+    opacity: 0.45;
+    font-weight: 400;
+  }
+
+  .bus-routes-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem 1rem;
+    border-top: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+    background: color-mix(in oklch, var(--muted) 35%, transparent);
+  }
+
+  .bus-routes-price {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bus-routes-price-label {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.15rem;
+  }
+
+  .bus-routes-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--primary-foreground);
+    background: var(--primary);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .bus-routes-cta:hover {
+    background: color-mix(in oklch, var(--primary) 88%, var(--foreground));
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-routes-cta:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* --- Pickup / dropoff (PickupDropoff) --- */
+  .bus-pickup-shell {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 16%, transparent);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--card) 97%, var(--primary)) 0%,
+      var(--card) 45%
+    );
+    padding: 1rem 1rem 1.15rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 768px) {
+    .bus-pickup-shell {
+      padding: 1.1rem 1.15rem 1.2rem;
+    }
+  }
+
+  .bus-pickup-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-pickup-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-pickup-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-md);
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 11%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+  }
+
+  .bus-pickup-header-sub {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    max-width: 40rem;
+  }
+
+  .bus-pickup-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .bus-pickup-grid {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 0.75rem 1rem;
+      align-items: end;
+    }
+  }
+
+  .bus-pickup-connector {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .bus-pickup-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 1.65rem;
+      color: color-mix(in oklch, var(--primary) 55%, var(--muted-foreground));
+    }
+  }
+
+  .bus-pickup-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .bus-pickup-label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  .bus-pickup-label-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 0.35rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--primary-foreground);
+    background: var(--primary);
+  }
+
+  .bus-pickup-label-badge--drop {
+    background: color-mix(in oklch, var(--secondary) 85%, var(--foreground));
+    color: var(--secondary-foreground);
+  }
+
+  .bus-pickup-trigger {
+    width: 100%;
+    min-height: 2.65rem;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid color-mix(in oklch, var(--input) 75%, transparent) !important;
+    background: var(--card) !important;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .bus-pickup-trigger:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--ring) 30%, transparent);
+  }
+
+  .bus-pickup-search {
+    margin: 0.4rem 0.5rem 0.25rem;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid color-mix(in oklch, var(--border) 50%, transparent) !important;
+    background: color-mix(in oklch, var(--muted) 40%, var(--card)) !important;
+    font-size: 0.8rem !important;
+  }
+
+  .bus-pickup-item {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+  }
+
+  .bus-pickup-empty {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .bus-pickup-error {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--destructive);
+  }
+
+  .bus-pickup-hint {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    line-height: 1.35;
+  }
+
+  /* --- Trip review / payment summary (TripDetails) --- */
+  .bus-trip-details {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .bus-trip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      120deg,
+      var(--primary) 0%,
+      color-mix(in oklch, var(--primary) 82%, var(--foreground)) 100%
+    );
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-md);
+  }
+
+  .bus-trip-header-title {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+  }
+
+  .bus-trip-header-sub {
+    margin: 0.2rem 0 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.92;
+    line-height: 1.35;
+    max-width: 28rem;
+  }
+
+  .bus-trip-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: color-mix(in oklch, var(--muted) 45%, var(--card));
+  }
+
+  .bus-trip-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bus-trip-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      align-items: start;
+    }
+  }
+
+  .bus-trip-panel {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .bus-trip-panel-head {
+    margin: 0;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    background: color-mix(in oklch, var(--muted) 52%, var(--card));
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+  }
+
+  .bus-trip-panel-body {
+    padding: 0.85rem 0.95rem 1rem;
+  }
+
+  .bus-trip-deflist {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .bus-trip-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 0.5rem 0.75rem;
+    align-items: start;
+    padding: 0.55rem 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 35%, transparent);
+  }
+
+  .bus-trip-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .bus-trip-row dt {
+    margin: 0;
+    font-weight: 700;
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+
+  .bus-trip-row dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--foreground);
+    text-align: end;
+    word-break: break-word;
+  }
+
+  .bus-trip-seats-inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    justify-content: flex-end;
+  }
+
+  .bus-trip-seat-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .bus-trip-passenger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .bus-trip-passenger-card {
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: color-mix(in oklch, var(--card) 96%, var(--muted));
+    overflow: hidden;
+  }
+
+  .bus-trip-passenger-seat {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-foreground);
+    background: var(--primary);
+  }
+
+  .bus-trip-passenger-body {
+    padding: 0.65rem 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .bus-trip-passenger-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .bus-trip-passenger-line span:first-child {
+    font-weight: 700;
+    color: var(--muted-foreground);
+    flex-shrink: 0;
+  }
+
+  .bus-trip-passenger-line span:last-child {
+    font-weight: 600;
+    text-align: end;
+    word-break: break-word;
+  }
+
+  .bus-trip-money-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 35%, transparent);
+  }
+
+  .bus-trip-money-row:last-of-type {
+    border-bottom: none;
+  }
+
+  .bus-trip-money-row--total {
+    margin-top: 0.25rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+
+  .bus-trip-money-row--total span:last-child {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bus-trip-voucher {
+    margin-top: 0.65rem;
+  }
+
+  .bus-trip-voucher-input {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid color-mix(in oklch, var(--input) 75%, transparent) !important;
+    background: var(--card) !important;
+    font-size: 0.8rem !important;
+  }
+
+  .bus-trip-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--muted) 40%, transparent);
+    border: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  }
+
+  .bus-trip-terms label {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--foreground);
+    cursor: pointer;
+    padding-top: 0.05rem;
+  }
+
+  .bus-trip-pay-btn {
+    margin-top: 1rem;
+    width: 100%;
+    min-height: 2.85rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+  }
+
+  .bus-trip-alert {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--destructive);
+    background: color-mix(in oklch, var(--destructive) 10%, transparent);
+    border: 1px solid color-mix(in oklch, var(--destructive) 35%, transparent);
+  }
+
+  /* --- Ticket payment page (Azam / mobile money) --- */
+  .bus-payment-shell {
+    width: 100%;
+    min-height: min(100dvh, 100vh);
+    display: flex;
+    align-items: center;
+    padding: clamp(5.5rem, 12vw, 7rem) 0 clamp(2rem, 5vw, 3rem);
+  }
+
+  .bus-payment-container {
+    width: 100%;
+    max-width: min(100%, 32rem);
+    margin-inline: auto;
+  }
+
+  .bus-payment-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    min-height: 12rem;
+    padding: 2rem 1rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 55%, var(--primary));
+    background: color-mix(in oklch, var(--card) 94%, var(--muted));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-payment-loading__text {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    text-align: center;
+    max-width: 18rem;
+    line-height: 1.45;
+  }
+
+  .bus-payment-card {
+    width: 100%;
+    margin-inline: auto;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 20%, var(--border));
+    background: linear-gradient(
+      175deg,
+      var(--card) 0%,
+      color-mix(in oklch, var(--card) 96%, var(--muted)) 100%
+    );
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+
+  .bus-payment-card__masthead {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem 0.85rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: linear-gradient(
+      95deg,
+      color-mix(in oklch, var(--primary) 9%, transparent) 0%,
+      color-mix(in oklch, var(--card) 98%, var(--primary)) 55%
+    );
+  }
+
+  .bus-payment-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.65rem;
+    height: 2.65rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    color: var(--primary);
+    border: 1px solid color-mix(in oklch, var(--primary) 20%, transparent);
+  }
+
+  .bus-payment-card__icon svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    stroke-width: 2.25;
+  }
+
+  .bus-payment-card__heading {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+
+  .bus-payment-card__sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    font-variant-numeric: tabular-nums;
+    word-break: break-all;
+  }
+
+  .bus-payment-card__inner {
+    padding: 1.15rem 1.1rem 1.35rem;
+  }
+
+  @media (min-width: 640px) {
+    .bus-payment-card__inner {
+      padding: 1.25rem 1.35rem 1.5rem;
+    }
+
+    .bus-payment-card__masthead {
+      padding: 1.1rem 1.35rem 0.95rem;
+    }
+  }
+
+  .bus-payment-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.85rem 0.95rem 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--primary) 14%, transparent);
+    background: color-mix(in oklch, var(--card) 92%, var(--muted));
+  }
+
+  .bus-payment-summary__label {
+    margin: 0 0 0.5rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .bus-payment-row--route dt {
+    align-self: flex-start;
+    padding-top: 0.15rem;
+  }
+
+  .bus-payment-row--route dd {
+    font-weight: 700;
+    line-height: 1.35;
+    color: color-mix(in oklch, var(--primary) 35%, var(--foreground));
+  }
+
+  .bus-payment-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    padding: 0.55rem 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  }
+
+  .bus-payment-row:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .bus-payment-row dt {
+    margin: 0;
+    font-weight: 700;
+    color: var(--muted-foreground);
+    flex-shrink: 0;
+    max-width: 48%;
+  }
+
+  .bus-payment-row dd {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--foreground);
+    text-align: end;
+    word-break: break-word;
+    min-width: 0;
+  }
+
+  .bus-payment-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    color: var(--primary);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .bus-payment-copy:hover {
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 35%, transparent);
+  }
+
+  .bus-payment-copy:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-payment-timer {
+    margin-top: 1rem;
+    padding: 1rem 0.75rem 1.1rem;
+    border-radius: var(--radius-lg);
+    border: 1px dashed color-mix(in oklch, var(--primary) 28%, transparent);
+    background: color-mix(in oklch, var(--muted) 40%, var(--card));
+    text-align: center;
+  }
+
+  .bus-payment-timer__digits {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    color: var(--foreground);
+  }
+
+  .bus-payment-timer--urgent .bus-payment-timer__digits {
+    color: var(--destructive);
+  }
+
+  .bus-payment-timer__hint {
+    margin: 0.5rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+  }
+
+  .bus-payment-section-title {
+    margin: 0 0 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+  }
+
+  .bus-payment-section-title svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    color: var(--primary);
+    opacity: 0.9;
+  }
+
+  .bus-payment-methods {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 640px) {
+    .bus-payment-methods {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .bus-payment-method-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 0.5rem;
+    border-radius: var(--radius-lg);
+    border: 2px solid color-mix(in oklch, var(--border) 55%, transparent);
+    background: var(--card);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+    font: inherit;
+    color: inherit;
+    width: 100%;
+    text-align: center;
+  }
+
+  .bus-payment-method-tile:hover {
+    border-color: color-mix(in oklch, var(--primary) 35%, var(--border));
+    box-shadow: var(--shadow-xs);
+  }
+
+  .bus-payment-method-tile:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-payment-method-tile--selected {
+    border-color: color-mix(in oklch, var(--primary) 45%, transparent);
+    background: color-mix(in oklch, var(--primary) 10%, var(--card));
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+
+  .bus-payment-method-tile__selected-icon {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    pointer-events: none;
+  }
+
+  .bus-payment-method-tile__selected-icon svg {
+    width: 0.7rem;
+    height: 0.7rem;
+    stroke-width: 3;
+  }
+
+  .bus-payment-method-tile img {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    .bus-payment-method-tile img {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
+
+  .bus-payment-method-tile span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+
+  .bus-payment-error {
+    margin: 0.35rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--destructive);
+  }
+
+  .bus-payment-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.15rem;
+    text-align: center;
+    padding: 0.35rem 0 0.25rem;
+  }
+
+  .bus-payment-success__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background: color-mix(in oklch, #15803d 14%, transparent);
+    color: color-mix(in oklch, #15803d 88%, var(--foreground));
+    border: 1px solid color-mix(in oklch, #15803d 28%, transparent);
+  }
+
+  .bus-payment-success__badge svg {
+    width: 1.85rem;
+    height: 1.85rem;
+    stroke-width: 2.5;
+  }
+
+  .bus-payment-success__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: color-mix(in oklch, #15803d 85%, var(--foreground));
+  }
+
+  .bus-payment-success__text {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+    max-width: 22rem;
+  }
+
+  .bus-payment-refresh {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
+    padding: 0.65rem;
+    border-radius: var(--radius-md);
+    border: 1px dashed color-mix(in oklch, var(--border) 55%, transparent);
+    background: color-mix(in oklch, var(--muted) 35%, transparent);
+  }
+
+  .bus-payment-refresh__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    color: var(--primary-foreground);
+    background: var(--primary);
+    box-shadow: var(--shadow-sm);
+    transition:
+      background 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .bus-payment-refresh__btn:hover {
+    background: color-mix(in oklch, var(--primary) 88%, var(--foreground));
+  }
+
+  .bus-payment-refresh__btn:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-payment-refresh__label {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .bus-payment-refresh__label:hover {
+    color: var(--foreground);
+    text-decoration: underline;
+  }
+
+  /* Payment method dialog — layout tuned for scanability & thumb reach */
+  .bus-payment-dialog {
+    max-height: min(92dvh, 40rem);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bus-payment-dialog > button.absolute {
+    top: 0.65rem;
+    right: 0.65rem;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--border) 65%, transparent);
+    background: color-mix(in oklch, var(--background) 94%, transparent);
+    color: var(--foreground);
+    opacity: 1;
+    box-shadow: var(--shadow-sm);
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .bus-payment-dialog > button.absolute:hover {
+    background: color-mix(in oklch, var(--muted) 55%, var(--background));
+    border-color: color-mix(in oklch, var(--primary) 28%, var(--border));
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+    background: var(--background);
+  }
+
+  .bus-payment-modal__header {
+    flex-shrink: 0;
+    padding: 1.1rem 1.1rem 0.85rem;
+    padding-right: 2.85rem;
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--primary) 12%, var(--background)) 0%,
+      color-mix(in oklch, var(--muted) 22%, var(--background)) 100%
+    );
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+  }
+
+  .bus-payment-modal__header-top {
+    margin-bottom: 0.85rem;
+  }
+
+  .bus-payment-modal__brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .bus-payment-modal__brand-frame {
+    flex-shrink: 0;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, var(--border));
+    background: var(--card);
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent),
+      var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+
+  .bus-payment-modal__brand-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .bus-payment-modal__intro {
+    min-width: 0;
+  }
+
+  .bus-payment-modal__eyebrow {
+    margin: 0 0 0.2rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--primary) 75%, var(--muted-foreground));
+  }
+
+  .bus-payment-modal__heading {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal__lede {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
+
+  .bus-payment-modal__chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 380px) {
+    .bus-payment-modal__chips {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .bus-payment-modal__chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    padding: 0.45rem 0.5rem 0.45rem 0.65rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+    background: color-mix(in oklch, var(--card) 88%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--foreground) 4%, transparent);
+  }
+
+  .bus-payment-modal__chip-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-foreground);
+    flex-shrink: 0;
+  }
+
+  .bus-payment-modal__chip-value {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--foreground);
+    text-align: end;
+    word-break: break-word;
+  }
+
+  .bus-payment-modal__chip-value--mono {
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, monospace;
+    font-size: 0.72rem;
+  }
+
+  .bus-payment-modal__chip-action {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
+    background: color-mix(in oklch, var(--primary) 10%, transparent);
+    color: var(--primary);
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .bus-payment-modal__chip-action:hover {
+    background: color-mix(in oklch, var(--primary) 16%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 40%, transparent);
+  }
+
+  .bus-payment-modal__scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.85rem 1rem 1.15rem;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bus-payment-modal__section {
+    margin: 0;
+  }
+
+  .bus-payment-modal__section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .bus-payment-modal__section-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    color: var(--primary);
+  }
+
+  .bus-payment-modal__section-title {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .bus-payment-modal-step {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    padding-bottom: 0.85rem;
+  }
+
+  .bus-payment-modal-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .bus-payment-modal-step__rail {
+    flex-shrink: 0;
+    width: 1.65rem;
+    margin-top: 0.05rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bus-payment-modal-step__index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--primary-foreground);
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklch, var(--primary) 92%, black) 0%,
+      var(--primary) 100%
+    );
+    box-shadow: 0 1px 2px color-mix(in oklch, var(--foreground) 12%, transparent);
+  }
+
+  .bus-payment-modal-step__main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .bus-payment-modal-step__text {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal-step__hl {
+    font-weight: 800;
+    color: var(--primary);
+    padding: 0 0.1rem;
+    border-radius: 0.2rem;
+    background: color-mix(in oklch, var(--primary) 11%, transparent);
+  }
+
+  .bus-payment-modal-step__copy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .bus-payment-modal-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.28rem 0.55rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+    background: color-mix(in oklch, var(--primary) 7%, transparent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--primary);
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .bus-payment-modal-copy:hover {
+    background: color-mix(in oklch, var(--primary) 13%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 38%, transparent);
+  }
+
+  .bus-payment-modal-copy:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 70%, var(--primary));
+  }
+
+  .bus-payment-modal__section--accent {
+    margin-top: 0.15rem;
+    padding: 1rem 0.95rem 1.1rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, var(--border));
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--primary) 9%, var(--card)) 0%,
+      color-mix(in oklch, var(--muted) 35%, var(--card)) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent),
+      var(--shadow-sm);
+  }
+
+  .bus-payment-modal__push-head {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+  }
+
+  .bus-payment-modal__push-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklch, var(--primary) 16%, transparent);
+    color: var(--primary);
+  }
+
+  .bus-payment-modal__push-title {
+    margin: 0 0 0.25rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal__push-text {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
+
+  .bus-payment-modal__field {
+    margin-bottom: 0.65rem;
+  }
+
+  .bus-payment-modal__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-payment-modal__phone-input {
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.35rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--border) 75%, transparent);
+    background: var(--background);
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .bus-payment-modal__phone-input:focus-within {
+    border-color: color-mix(in oklch, var(--primary) 45%, var(--border));
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 14%, transparent);
+  }
+
+  .bus-payment-modal__phone-input--invalid {
+    border-color: var(--destructive);
+  }
+
+  .bus-payment-modal__phone-input--invalid:focus-within {
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 18%, transparent);
+  }
+
+  .bus-payment-modal__field-error {
+    margin: 0.4rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--destructive);
+  }
+
+  .bus-payment-modal__submit {
+    width: 100%;
+    margin-top: 0.15rem;
+    min-height: 2.75rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--primary-foreground) 15%, transparent),
+      var(--shadow-sm);
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+
+  .bus-payment-modal__submit:hover:not(:disabled) {
+    filter: brightness(1.05);
+  }
+
+  .bus-payment-modal__submit:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  .bus-payment-modal__submit:disabled {
+    opacity: 0.85;
+    cursor: not-allowed;
+  }
+
+  /* --- Transaction failed (payment timeout / cancelled) --- */
+  .bus-transaction-failed-shell {
+    min-height: min(100dvh, 100vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(5.5rem, 12vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--muted) 35%, var(--background)) 0%,
+      var(--background) 45%,
+      color-mix(in oklch, var(--primary) 6%, var(--background)) 100%
+    );
+  }
+
+  .bus-transaction-failed {
+    max-width: min(100%, 28rem);
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 2rem);
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+    background: color-mix(in oklch, var(--card) 96%, var(--background));
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent),
+      0 12px 40px
+        color-mix(in oklch, var(--foreground) 6%, transparent);
+    text-align: center;
+  }
+
+  .bus-transaction-failed__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 auto 1.1rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklch, var(--destructive) 18%, var(--muted)) 0%,
+      color-mix(in oklch, var(--destructive) 8%, var(--card)) 100%
+    );
+    border: 1px solid color-mix(in oklch, var(--destructive) 28%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--foreground) 6%, transparent);
+  }
+
+  .bus-transaction-failed__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: color-mix(in oklch, var(--destructive) 88%, var(--foreground));
+  }
+
+  .bus-transaction-failed__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--destructive) 55%, var(--muted-foreground));
+  }
+
+  .bus-transaction-failed__title {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.35rem, 3.5vw, 1.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .bus-transaction-failed__lead {
+    margin: 0 0 1.15rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--muted-foreground);
+  }
+
+  .bus-transaction-failed__panel {
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px dashed color-mix(in oklch, var(--primary) 22%, var(--border));
+    background: color-mix(in oklch, var(--muted) 38%, var(--card));
+    text-align: start;
+  }
+
+  .bus-transaction-failed__panel-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .bus-transaction-failed__panel-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.85rem;
+    height: 1.85rem;
+    margin-top: 0.05rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+
+  .bus-transaction-failed__panel-text {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--foreground);
+  }
+
+  .bus-transaction-failed__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  @media (min-width: 420px) {
+    .bus-transaction-failed__actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .bus-transaction-failed__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition:
+      filter 0.15s ease,
+      transform 0.1s ease,
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .bus-transaction-failed__btn--primary {
+    flex: 1;
+    min-width: min(100%, 12rem);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid color-mix(in oklch, var(--primary) 70%, transparent);
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--primary-foreground) 12%, transparent),
+      var(--shadow-sm);
+  }
+
+  .bus-transaction-failed__btn--primary:hover {
+    filter: brightness(1.06);
+  }
+
+  .bus-transaction-failed__btn--primary:active {
+    transform: translateY(1px);
+  }
+
+  .bus-transaction-failed__btn--primary:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-transaction-failed__btn--secondary {
+    flex: 1;
+    min-width: min(100%, 12rem);
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+  }
+
+  .bus-transaction-failed__btn--secondary:hover {
+    background: color-mix(in oklch, var(--muted) 45%, transparent);
+    border-color: color-mix(in oklch, var(--border) 75%, transparent);
+  }
+
+  .bus-transaction-failed__btn--secondary:active {
+    transform: translateY(1px);
+  }
+
+  .bus-transaction-failed__btn--secondary:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  .bus-transaction-failed__hint {
+    margin: 1.15rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
+
+  .bus-transaction-failed__inline-link {
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .bus-transaction-failed__inline-link:hover {
+    color: color-mix(in oklch, var(--primary) 85%, var(--foreground));
+  }
+
+  .bus-transaction-failed__inline-link:focus-visible {
+    outline: none;
+    border-radius: 0.2rem;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary));
+  }
+
+  /* --- Site footer (global) --- */
+  .site-footer {
+    margin-top: auto;
+    color: var(--primary-foreground);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--primary) 92%, var(--foreground)) 0%,
+      var(--primary) 42%,
+      color-mix(in oklch, var(--primary) 88%, black) 100%
+    );
+    border-top: 1px solid color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+  }
+
+  .site-footer__inner {
+    padding: 2rem 0 1.75rem;
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: 2rem 1.75rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.85fr);
+      align-items: start;
+    }
+  }
+
+  .site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__brand {
+      padding-inline-end: 0.5rem;
+    }
+  }
+
+  .site-footer__brand-tag {
+    margin: 0;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.88;
+  }
+
+  .site-footer__logo-wrap {
+    display: inline-flex;
+    padding: 0.45rem 0.55rem;
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklch, var(--primary-foreground) 10%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 16%, transparent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-footer__logo {
+    display: block;
+    width: 7.5rem;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .site-footer__col-title {
+    margin: 0 0 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    opacity: 0.95;
+  }
+
+  .site-footer__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .site-footer__contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .site-footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: color-mix(in oklch, var(--primary-foreground) 94%, transparent);
+  }
+
+  .site-footer__contact-icon {
+    flex-shrink: 0;
+    margin-top: 0.12rem;
+    opacity: 0.85;
+  }
+
+  .site-footer__link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.4;
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .site-footer__link:hover {
+    border-bottom-color: color-mix(in oklch, var(--primary-foreground) 55%, transparent);
+  }
+
+  .site-footer__link:focus-visible {
+    outline: 2px solid var(--primary-foreground);
+    outline-offset: 3px;
+    border-radius: 0.2rem;
+  }
+
+  .site-footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .site-footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    color: var(--primary-foreground);
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 18%, transparent);
+    transition:
+      background 0.2s ease,
+      transform 0.15s ease,
+      border-color 0.2s ease;
+  }
+
+  .site-footer__social-link:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 20%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .site-footer__social-link:focus-visible {
+    outline: 2px solid var(--primary-foreground);
+    outline-offset: 2px;
+  }
+
+  .site-footer__bar {
+    border-top: 1px solid color-mix(in oklch, var(--primary-foreground) 14%, transparent);
+    background: color-mix(in oklch, var(--foreground) 88%, var(--primary));
+    color: color-mix(in oklch, var(--primary-foreground) 92%, transparent);
+    padding: 0.85rem 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .dark .site-footer__bar {
+    background: color-mix(in oklch, var(--card) 40%, var(--primary));
+    color: color-mix(in oklch, var(--primary-foreground) 88%, transparent);
+  }
+
+  /* --- App shell (RootLayout) --- */
+  .app-shell {
+    position: relative;
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  @supports not (height: 100dvh) {
+    .app-shell {
+      min-height: 100vh;
+    }
+  }
+
+  .app-main {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .app-main:focus {
+    outline: none;
+  }
+
+  .app-main:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* --- Notifications (Sonner) --- */
+  [data-sonner-toaster] {
+    --toast-radius: var(--radius-xl);
+  }
+
+  /* Sonner width defaults can be narrow; set our own responsive width */
+  [data-sonner-toast] {
+    width: min(96vw, 32rem);
+  }
+
+  .bus-toast {
+    border-radius: var(--radius-xl) !important;
+    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+    background: color-mix(in oklch, var(--card) 92%, var(--background));
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent),
+      0 16px 50px color-mix(in oklch, var(--foreground) 10%, transparent);
+    padding: 0.9rem 0.95rem;
+    gap: 0.35rem;
+  }
+
+  .bus-toast__title {
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  .bus-toast__desc {
+    color: var(--muted-foreground);
+    font-weight: 600;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .bus-toast__action,
+  .bus-toast__cancel {
+    border-radius: var(--radius-lg) !important;
+    font-weight: 800 !important;
+    font-size: 0.78rem !important;
+    height: 2.25rem !important;
+    padding-inline: 0.85rem !important;
+  }
+
+  .bus-toast__action {
+    background: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .bus-toast__cancel {
+    background: color-mix(in oklch, var(--muted) 55%, transparent) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* --- App error pages (404, 403, 500) --- */
+  .app-error-page {
+    min-height: min(100dvh, 100vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.25rem, 5vw, 2.5rem);
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--background) 94%, var(--primary)) 0%,
+      var(--background) 38%,
+      color-mix(in oklch, var(--muted) 45%, var(--background)) 100%
+    );
+  }
+
+  .app-error-page__card {
+    width: 100%;
+    max-width: 26rem;
+    padding: clamp(1.75rem, 4.5vw, 2.65rem);
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 50%, var(--primary));
+    background: linear-gradient(
+      175deg,
+      var(--card) 0%,
+      color-mix(in oklch, var(--card) 96%, var(--muted)) 100%
+    );
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+
+  .app-error-page__code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.25rem;
+    min-height: 5.25rem;
+    margin: 0 auto 1rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-xl);
+    font-size: clamp(2.35rem, 9vw, 3.5rem);
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .app-error-page--404 .app-error-page__code {
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  }
+
+  .app-error-page--403 .app-error-page__code {
+    color: color-mix(in oklch, var(--destructive) 82%, var(--foreground));
+    background: color-mix(in oklch, var(--destructive) 10%, transparent);
+    border: 1px solid color-mix(in oklch, var(--destructive) 22%, transparent);
+  }
+
+  .app-error-page--500 .app-error-page__code {
+    color: color-mix(in oklch, var(--destructive) 88%, var(--foreground));
+    background: color-mix(in oklch, var(--destructive) 11%, transparent);
+    border: 1px solid color-mix(in oklch, var(--destructive) 26%, transparent);
+  }
+
+  .app-error-page__title {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.15rem, 3.2vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+
+  .app-error-page__subtitle {
+    margin: 0 0 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .app-error-page__text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--muted-foreground);
+  }
+
+  .app-error-page__hint {
+    margin: 0.75rem 0 0;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: color-mix(in oklch, var(--muted-foreground) 92%, var(--foreground));
+  }
+
+  .app-error-page__actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .app-error-page__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--primary-foreground);
+    background: var(--primary);
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .app-error-page__link:hover {
+    background: color-mix(in oklch, var(--primary) 88%, var(--foreground));
+    box-shadow: var(--shadow-md);
+  }
+
+  .app-error-page__link:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 80%, var(--primary)),
+      var(--shadow-sm);
+  }
+
+  .app-error-page__link--muted {
+    background: transparent;
+    color: var(--foreground);
+    border-color: color-mix(in oklch, var(--border) 65%, var(--primary));
+    box-shadow: none;
+  }
+
+  .app-error-page__link--muted:hover {
+    background: color-mix(in oklch, var(--muted) 40%, transparent);
+    border-color: color-mix(in oklch, var(--primary) 28%, var(--border));
+    box-shadow: var(--shadow-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-error-page__link {
+      transition: none;
+    }
+  }
+
+  /* Inline / section API error banner */
+  .app-response-error {
+    min-height: 10rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in oklch, var(--destructive) 38%, transparent);
+    background: color-mix(in oklch, var(--destructive) 9%, transparent);
+    color: color-mix(in oklch, var(--destructive) 88%, var(--foreground));
+    box-shadow: var(--shadow-xs);
+  }
+
+  .app-response-error__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    max-width: 42rem;
+    text-align: left;
+  }
+
+  @media (min-width: 640px) {
+    .app-response-error__inner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.5rem;
+    }
+  }
+
+  .app-response-error__label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .app-response-error__message {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* --- Contact page --- */
+  .contact-page {
+    width: 100%;
+    max-width: min(100%, 72rem);
+    margin-inline: auto;
+  }
+
+  .contact-page__grid {
+    display: grid;
+    gap: 2.5rem 3rem;
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-page__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    }
+  }
+
+  .contact-page__intro {
+    max-width: 36rem;
+  }
+
+  .contact-page__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--foreground);
+  }
+
+  .contact-page__title-accent {
+    display: block;
+    margin-top: 0.65rem;
+    height: 2px;
+    width: min(5.5rem, 40vw);
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--primary) 70%, transparent),
+      color-mix(in oklch, var(--secondary) 65%, transparent),
+      color-mix(in oklch, var(--accent) 55%, transparent)
+    );
+  }
+
+  .contact-page__lead {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+
+  .contact-page__channels {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-page__channel {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 55%, var(--primary));
+    background: color-mix(in oklch, var(--card) 88%, var(--muted));
+    box-shadow: var(--shadow-xs);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .contact-page__channel:hover {
+    border-color: color-mix(in oklch, var(--primary) 28%, transparent);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-page__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    color: var(--primary);
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+  }
+
+  .contact-page__icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .contact-page__channel-title {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    line-height: 1.25;
+  }
+
+  .contact-page__channel-body {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    word-break: break-word;
+  }
+
+  .contact-page__channel-link {
+    font-weight: 600;
+    color: var(--foreground);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in oklch, var(--primary) 35%, transparent);
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .contact-page__channel-link:hover {
+    color: var(--primary);
+    border-bottom-color: color-mix(in oklch, var(--primary) 65%, transparent);
+  }
+
+  .contact-page__channel-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 0.2rem;
+  }
+
+  .contact-page__form-wrap {
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+    background: linear-gradient(
+      165deg,
+      color-mix(in oklch, var(--card) 94%, var(--primary)) 0%,
+      var(--card) 52%,
+      color-mix(in oklch, var(--card) 96%, var(--muted)) 100%
+    );
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .contact-page__form-wrap {
+      padding: 2rem 1.75rem 2.25rem;
+    }
+  }
+
+  .contact-page__form-title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .contact-page__form-subtitle {
+    margin: 0.4rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+  }
+
+  .contact-form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .contact-form__label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  /* Higher specificity so theme wins over legacy Input/Textarea utilities */
+  .contact-form input.contact-form__input,
+  .contact-form textarea.contact-form__input {
+    width: 100%;
+    min-height: 0;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklch, var(--input) 80%, transparent);
+    background: var(--background);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--foreground);
+    box-shadow: none;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .contact-form input.contact-form__input::placeholder,
+  .contact-form textarea.contact-form__input::placeholder {
+    color: var(--muted-foreground);
+  }
+
+  .contact-form input.contact-form__input:focus-visible,
+  .contact-form textarea.contact-form__input:focus-visible {
+    outline: none;
+    border-color: color-mix(in oklch, var(--ring) 55%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--ring) 25%, transparent);
+  }
+
+  .contact-form input.contact-form__input.contact-form__input--error,
+  .contact-form textarea.contact-form__input.contact-form__input--error {
+    border-color: color-mix(in oklch, var(--destructive) 45%, transparent);
+  }
+
+  .contact-form textarea.contact-form__textarea {
+    min-height: 8.5rem;
+    resize: vertical;
+  }
+
+  .contact-form__error {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--destructive);
+  }
+
+  .contact-form__banner {
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .contact-form__banner--error {
+    border-color: color-mix(in oklch, var(--destructive) 35%, transparent);
+    background: color-mix(in oklch, var(--destructive) 6%, transparent);
+    color: color-mix(in oklch, var(--destructive) 78%, var(--foreground));
+  }
+
+  .contact-form__banner--success {
+    border-color: color-mix(in oklch, var(--primary) 28%, transparent);
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    color: var(--foreground);
+  }
+
+  .contact-form__submit {
+    margin-top: 0.25rem;
+    padding-inline: 1.35rem;
+    min-height: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .contact-form__submit:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-form__submit:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in oklch, var(--ring) 75%, var(--primary)),
+      var(--shadow-xs);
+  }
+
+  .contact-form__submit:disabled {
+    opacity: 0.65;
+  }
+
+  /* --- Home page layout --- */
+  .home-page {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hero + search: one visual block, ties into routes below */
+  .home-hero {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+    background: var(--primary);
+    padding-bottom: clamp(0.25rem, 1.5vw, 0.75rem);
+  }
+
+  .home-hero__slides {
+    position: relative;
+  }
+
+  .home-hero-slide-item {
+    height: clamp(16rem, 48vw, 24rem);
+    max-height: min(58vh, 26rem);
+  }
+
+  /* Hero carousel: slides + chrome (nav + dots) */
+  .home-hero-carousel {
+    overflow: hidden;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  }
+
+  @media (min-width: 768px) {
+    .home-hero-carousel {
+      border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    }
+  }
+
+  .home-hero-carousel__track {
+    margin-left: 0 !important;
+  }
+
+  .home-hero-slide {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .home-hero-slide__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+  }
+
+  .home-hero-slide__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--foreground) 28%, transparent) 0%,
+      color-mix(in oklch, var(--foreground) 45%, transparent) 42%,
+      color-mix(in oklch, var(--primary) 52%, black) 100%
+    );
+  }
+
+  .home-hero-slide__inner {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .home-hero-slide__content {
+    width: 100%;
+    max-width: min(42rem, 100%);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .home-hero-slide__title {
+    margin: 0;
+    font-size: clamp(1.35rem, 4.2vw, 2.65rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--primary-foreground);
+    text-wrap: balance;
+    text-shadow:
+      0 1px 2px color-mix(in oklch, black 35%, transparent),
+      0 2px 24px color-mix(in oklch, black 40%, transparent);
+  }
+
+  .home-hero-slide__desc {
+    margin: 0.85rem 0 0;
+    font-size: clamp(0.82rem, 1.85vw, 1rem);
+    font-weight: 500;
+    line-height: 1.55;
+    color: color-mix(in oklch, var(--primary-foreground) 92%, transparent);
+    max-width: 38rem;
+    margin-inline: auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .home-hero-slide__desc {
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  .home-hero-carousel__chrome {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem 0.85rem;
+    pointer-events: none;
+  }
+
+  .home-hero-carousel__chrome > * {
+    pointer-events: auto;
+  }
+
+  .home-hero-carousel__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .home-hero-carousel__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 35%, transparent);
+    background: color-mix(in oklch, var(--foreground) 22%, transparent);
+    color: var(--primary-foreground);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.15s ease,
+      opacity 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .home-hero-carousel__btn:hover:not(:disabled) {
+    background: color-mix(in oklch, var(--foreground) 32%, transparent);
+    border-color: color-mix(in oklch, var(--primary-foreground) 55%, transparent);
+  }
+
+  .home-hero-carousel__btn:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px color-mix(in oklch, var(--primary) 55%, var(--background)),
+      0 0 0 4px color-mix(in oklch, var(--ring) 70%, var(--primary-foreground));
+  }
+
+  .home-hero-carousel__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .home-hero-carousel__dots {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .home-hero-carousel__dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 9999px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: color-mix(in oklch, var(--primary-foreground) 45%, transparent);
+    transition:
+      width 0.25s ease,
+      background 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .home-hero-carousel__dot:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 72%, transparent);
+  }
+
+  .home-hero-carousel__dot--active {
+    width: 1.35rem;
+    background: var(--primary-foreground);
+    opacity: 1;
+  }
+
+  .home-hero-carousel__dot:focus-visible {
+    outline: 2px solid var(--primary-foreground);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero-slide__img {
+      transform: none;
+    }
+
+    .home-hero-carousel__dot {
+      transition: none;
+    }
+  }
+
+  .home-hero__search {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: min(72rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: clamp(-2rem, -4.5vw, -3.75rem);
+    padding: 0 clamp(0.75rem, 3vw, 1.5rem)
+      clamp(0.35rem, 1.5vw, 0.75rem);
+  }
+
+  @media (min-width: 768px) {
+    .home-hero__search {
+      margin-top: clamp(-3.25rem, -6vw, -4.5rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .home-hero__search {
+      max-width: min(80rem, 100%);
+    }
+  }
+
+  .home-skip-link,
+  .app-skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .home-skip-link:focus,
+  .app-skip-link:focus {
+    position: fixed;
+    z-index: 9999;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.55rem 1rem;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-foreground);
+    background: var(--primary);
+    box-shadow: var(--shadow-lg);
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .home-page__routes-region {
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: 5.5rem;
+    /* Clears the floating search card (overlap from .home-hero__search) */
+    padding-top: clamp(2.25rem, 7vw, 4.25rem);
+    padding-bottom: clamp(0.75rem, 2.5vw, 1.25rem);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--background) 90%, var(--primary)) 0%,
+      var(--background) 45%,
+      var(--background) 100%
+    );
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 45%, transparent);
+  }
+
+  .home-page__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-page__content > * {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-page__section-band {
+    width: 100%;
+    background: var(--background);
+  }
+
+  .home-page__section-band--alt {
+    background: color-mix(in oklch, var(--muted) 35%, var(--background));
+    border-block: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  }
+
+  /* --- Home: booking instructions (how to book) --- */
+  .home-instructions {
+    width: 100%;
+    padding-block: clamp(2.5rem, 7vw, 4rem);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--muted) 28%, var(--background)) 0%,
+      var(--background) 45%,
+      color-mix(in oklch, var(--primary) 6%, var(--background)) 100%
+    );
+    border-block: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  }
+
+  .home-instructions__container {
+    width: 100%;
+    max-width: min(100%, 90rem);
+    margin-inline: auto;
+    padding-inline: clamp(0.75rem, 3vw, 1rem);
+  }
+
+  .home-instructions__header {
+    max-width: 42rem;
+    margin-inline: auto;
+    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+  }
+
+  .home-instructions__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--primary) 75%, var(--muted-foreground));
+  }
+
+  .home-instructions__title {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .home-instructions__lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--muted-foreground);
+  }
+
+  .home-instructions__grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .home-instructions__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .home-instructions__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.15rem;
+    }
+  }
+
+  .home-instructions__step {
+    position: relative;
+    border-radius: var(--radius-xl);
+    border: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+    background: color-mix(in oklch, var(--card) 94%, var(--background));
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--foreground) 5%, transparent),
+      var(--shadow-sm);
+    overflow: hidden;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  .home-instructions__step:hover {
+    border-color: color-mix(in oklch, var(--primary) 28%, var(--border));
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .home-instructions__step--wide {
+    grid-column: 1 / -1;
+    max-width: min(100%, 40rem);
+    margin-inline: auto;
+    width: 100%;
+    border-color: color-mix(in oklch, var(--primary) 22%, var(--border));
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--primary) 10%, var(--card)) 0%,
+      color-mix(in oklch, var(--card) 96%, var(--background)) 100%
+    );
+  }
+
+  .home-instructions__step-index {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.85rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1;
+    color: color-mix(in oklch, var(--primary) 22%, var(--muted-foreground));
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .home-instructions__step-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.1rem 1.1rem 1.15rem;
+    padding-top: 1.35rem;
+  }
+
+  .home-instructions__icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklch, var(--primary) 16%, transparent);
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .home-instructions__icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .home-instructions__step-body {
+    min-width: 0;
+  }
+
+  .home-instructions__step-title {
+    margin: 0 0 0.45rem;
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .home-instructions__text {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    font-weight: 600;
+    color: var(--muted-foreground);
+  }
+
+  .home-instructions__text strong {
+    font-weight: 800;
+    color: color-mix(in oklch, var(--foreground) 88%, var(--primary));
+  }
+
+  /* Home: larger type & touch targets on small screens */
+  @media (max-width: 767.98px) {
+    .home-page--mobile-comfort .home-hero-slide-item {
+      height: clamp(17.5rem, 62vw, 26rem);
+      min-height: 17rem;
+    }
+
+    .home-page--mobile-comfort .home-hero-slide__inner {
+      padding: clamp(1.35rem, 5vw, 2.5rem) clamp(1rem, 4vw, 1.5rem);
+    }
+
+    .home-page--mobile-comfort .home-hero-slide__title {
+      font-size: clamp(1.58rem, 6.5vw, 2.65rem);
+      letter-spacing: 0.03em;
+    }
+
+    .home-page--mobile-comfort .home-hero-slide__desc {
+      font-size: clamp(0.95rem, 3.4vw, 1.05rem);
+      -webkit-line-clamp: 4;
+    }
+
+    .home-page--mobile-comfort .home-hero-carousel__btn {
+      width: 2.9rem;
+      height: 2.9rem;
+    }
+
+    .home-page--mobile-comfort .home-hero-carousel__dot {
+      width: 0.52rem;
+      height: 0.52rem;
+    }
+
+    .home-page--mobile-comfort .home-hero__search {
+      padding-inline: clamp(0.85rem, 4.5vw, 1.5rem);
+    }
+
+    .home-page--mobile-comfort .home-hero .bus-search-form {
+      padding: clamp(1.1rem, 3.5vw, 1.45rem) clamp(1.05rem, 3.2vw, 1.45rem);
+    }
+
+    .home-page--mobile-comfort .home-hero .bus-search-form__title {
+      font-size: clamp(1.1rem, 3.6vw, 1.3rem);
+    }
+
+    .home-page--mobile-comfort .home-hero .bus-search-form__subtitle {
+      font-size: 0.9rem;
+    }
+
+    .home-page--mobile-comfort .home-hero .bus-search-form__label {
+      font-size: 0.7rem;
+    }
+
+    .home-page--mobile-comfort .home-hero .bus-search-form__submit {
+      min-height: 3rem;
+      font-size: 0.95rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-hero-badge {
+      font-size: 0.7rem;
+      padding: 0.28rem 0.75rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-hero-title {
+      font-size: clamp(1.52rem, 5.2vw, 1.85rem);
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-hero-sub {
+      font-size: 0.93rem;
+      max-width: 28rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-endpoint-label {
+      font-size: 0.72rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-endpoint-name {
+      font-size: 1.08rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-endpoint-time {
+      font-size: 0.82rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-seats-pill {
+      font-size: 1.02rem;
+      padding: 0.42rem 0.72rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-seats-caption {
+      font-size: 0.7rem;
+      max-width: 5.75rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-meta {
+      font-size: 0.78rem;
+      padding: 0.55rem 0.75rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-card-body {
+      padding: 1.12rem 1.12rem 0.95rem;
+      gap: 0.95rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-price {
+      font-size: 1.18rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-price-label {
+      font-size: 0.68rem;
+    }
+
+    .home-page--mobile-comfort .home-page__routes-region .bus-routes-cta {
+      font-size: 0.92rem;
+      padding: 0.68rem 1.25rem;
+      min-height: 2.85rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__container {
+      padding-inline: clamp(0.85rem, 4vw, 1rem);
+    }
+
+    .home-page--mobile-comfort .home-instructions__eyebrow {
+      font-size: 0.7rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__title {
+      font-size: clamp(1.48rem, 5vw, 1.85rem);
+    }
+
+    .home-page--mobile-comfort .home-instructions__lead {
+      font-size: 1.02rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__step-inner {
+      padding: 1.2rem 1.15rem 1.2rem;
+      padding-top: 1.45rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__icon-wrap {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__icon {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__step-title {
+      font-size: 1.1rem;
+    }
+
+    .home-page--mobile-comfort .home-instructions__text {
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    .home-page--mobile-comfort [aria-label="Wito wa kutiketi"] h2 {
+      font-size: clamp(1.7rem, 6vw, 2.25rem) !important;
+      line-height: 1.2;
+    }
+
+    .home-page--mobile-comfort [aria-label="Wito wa kutiketi"] p {
+      font-size: clamp(1.05rem, 3.8vw, 1.35rem) !important;
+      line-height: 1.45;
+    }
+
+    .home-page--mobile-comfort [aria-label="Wito wa kutiketi"] a,
+    .home-page--mobile-comfort [aria-label="Wito wa kutiketi"] button {
+      min-height: 3rem;
+      font-size: 1rem !important;
+      padding-inline: 1.35rem !important;
+    }
+  }
+
+  /* BusRoutes under hero: avoid stacking hero + routes + bus-routes-page padding */
+  .home-page__routes-region .bus-routes-page {
+    padding-top: clamp(0.25rem, 1vw, 0.75rem);
+    padding-bottom: clamp(1.25rem, 3vw, 2.25rem);
+  }
+
+  /* --- Site navbar --- */
+  .nav-bar-shell {
+    z-index: 50;
+    width: 100%;
+    transition:
+      top 0.35s ease,
+      background 0.35s ease,
+      box-shadow 0.35s ease,
+      backdrop-filter 0.35s ease;
+  }
+
+  .nav-bar-shell--floating {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: clamp(0.65rem, 2vw, 1.15rem);
+  }
+
+  .nav-bar-shell--fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-block: 0.4rem;
+    background: color-mix(in oklch, var(--card) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 55%, transparent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    min-height: 3.75rem;
+    padding: 0.45rem 0.65rem 0.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+  }
+
+  .nav-bar-shell--floating .nav-bar {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: color-mix(in oklch, var(--primary-foreground) 14%, transparent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-bar-shell--fixed .nav-bar {
+    background: color-mix(in oklch, var(--card) 75%, transparent);
+    color: var(--foreground);
+    border-color: color-mix(in oklch, var(--border) 45%, transparent);
+  }
+
+  .nav-bar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    border-radius: var(--radius-md);
+    padding: 0.35rem 0.45rem;
+    margin: -0.35rem -0.45rem;
+    transition:
+      opacity 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .nav-bar-shell--floating .nav-bar__brand {
+    color: var(--primary-foreground);
+  }
+
+  .nav-bar-shell--floating .nav-bar__brand:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 10%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__brand {
+    color: var(--foreground);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__brand:hover {
+    background: color-mix(in oklch, var(--muted) 55%, transparent);
+  }
+
+  .nav-bar__brand-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in oklch, var(--primary-foreground) 14%, transparent);
+    color: inherit;
+  }
+
+  .nav-bar-shell--fixed .nav-bar__brand-icon {
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    color: var(--primary);
+  }
+
+  .nav-bar__brand-icon--logo {
+    width: auto;
+    min-width: 0;
+    max-width: 8.5rem;
+    padding: 0.2rem 0.35rem;
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__brand-icon--logo {
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+  }
+
+  .nav-bar__brand-logo-img {
+    display: block;
+    height: 2rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .nav-bar__brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    min-width: 0;
+  }
+
+  .nav-bar__brand-sub {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.82;
+  }
+
+  .nav-bar__links {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-bar__links {
+      display: flex;
+    }
+  }
+
+  .nav-bar__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .nav-bar-shell--floating .nav-bar__link {
+    color: color-mix(in oklch, var(--primary-foreground) 94%, transparent);
+  }
+
+  .nav-bar-shell--floating .nav-bar__link:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+    color: var(--primary-foreground);
+  }
+
+  .nav-bar-shell--floating .nav-bar__link--active {
+    background: color-mix(in oklch, var(--primary-foreground) 18%, transparent);
+    color: var(--primary-foreground);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__link {
+    color: var(--muted-foreground);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__link:hover {
+    background: color-mix(in oklch, var(--muted) 65%, transparent);
+    color: var(--foreground);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__link--active {
+    background: color-mix(in oklch, var(--primary) 14%, transparent);
+    color: var(--primary);
+  }
+
+  .nav-bar__link--cta {
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 35%, transparent);
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__link--cta {
+    border-color: color-mix(in oklch, var(--primary) 35%, transparent);
+    background: color-mix(in oklch, var(--primary) 10%, transparent);
+    color: var(--primary);
+  }
+
+  .nav-bar__actions {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .nav-bar__cta-end {
+    white-space: nowrap;
+  }
+
+  .nav-bar__icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .nav-bar-shell--floating .nav-bar__icon-btn {
+    color: var(--primary-foreground);
+    border-color: color-mix(in oklch, var(--primary-foreground) 22%, transparent);
+  }
+
+  .nav-bar-shell--floating .nav-bar__icon-btn:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__icon-btn {
+    color: var(--foreground);
+    border-color: color-mix(in oklch, var(--border) 70%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__icon-btn:hover {
+    background: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
+
+  .nav-bar__user-trigger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in oklch, var(--primary-foreground) 28%, transparent);
+    background: color-mix(in oklch, var(--primary-foreground) 8%, transparent);
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    color: inherit;
+    transition: background 0.2s ease;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-bar__user-trigger {
+      display: inline-flex;
+    }
+  }
+
+  .nav-bar-shell--fixed .nav-bar__user-trigger {
+    border-color: color-mix(in oklch, var(--primary) 35%, transparent);
+    background: color-mix(in oklch, var(--primary) 8%, transparent);
+    color: var(--primary);
+  }
+
+  .nav-bar__auth {
+    display: none;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-bar__auth {
+      display: flex;
+    }
+  }
+
+  .nav-bar__auth-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .nav-bar-shell--floating .nav-bar__auth-link--ghost {
+    color: var(--primary-foreground);
+    border: 1px solid color-mix(in oklch, var(--primary-foreground) 30%, transparent);
+  }
+
+  .nav-bar-shell--floating .nav-bar__auth-link--ghost:hover {
+    background: color-mix(in oklch, var(--primary-foreground) 12%, transparent);
+  }
+
+  .nav-bar-shell--floating .nav-bar__auth-link--solid {
+    background: var(--primary-foreground);
+    color: var(--primary);
+  }
+
+  .nav-bar-shell--floating .nav-bar__auth-link--solid:hover {
+    opacity: 0.92;
+  }
+
+  .nav-bar-shell--fixed .nav-bar__auth-link--ghost {
+    color: var(--foreground);
+    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__auth-link--ghost:hover {
+    background: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
+
+  .nav-bar-shell--fixed .nav-bar__auth-link--solid {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .nav-bar__popover-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .nav-bar__popover-link:hover {
+    background: color-mix(in oklch, var(--muted) 55%, transparent);
+  }
+
+  .nav-mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: color-mix(in oklch, var(--foreground) 42%, transparent);
+    animation: nav-fade-in 0.2s ease;
+  }
+
+  .nav-mobile-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 61;
+    display: flex;
+    width: min(20.5rem, 90vw);
+    flex-direction: column;
+    background: var(--card);
+    color: var(--card-foreground);
+    border-left: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+    box-shadow: var(--shadow-xl);
+    animation: nav-slide-in 0.28s ease;
+  }
+
+  @keyframes nav-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes nav-slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .nav-mobile-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+    background: color-mix(in oklch, var(--primary) 8%, var(--card));
+  }
+
+  .nav-mobile-panel__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+
+  .nav-mobile-panel__brand-logo {
+    display: block;
+    height: 2.25rem;
+    width: auto;
+    max-width: min(11rem, 48vw);
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .nav-mobile-panel__close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    color: var(--primary-foreground);
+    background: var(--destructive);
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-mobile-panel__close:hover {
+    opacity: 0.9;
+  }
+
+  .nav-mobile-panel__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .nav-mobile-panel__link {
+    display: block;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .nav-mobile-panel__link:hover {
+    background: color-mix(in oklch, var(--muted) 60%, transparent);
+  }
+
+  .nav-mobile-panel__link--active {
+    background: color-mix(in oklch, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+
+  .nav-mobile-panel__section {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+  }
+
+  .nav-mobile-panel__row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--foreground);
+    text-decoration: none;
+  }
+
+  .nav-mobile-panel__row:hover {
+    background: color-mix(in oklch, var(--muted) 55%, transparent);
+  }
+
+  .nav-mobile-panel__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .nav-mobile-panel__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-mobile-panel__btn:hover {
+    opacity: 0.92;
+  }
+
+  .nav-mobile-panel__btn--outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid color-mix(in oklch, var(--primary) 40%, transparent);
+  }
+}

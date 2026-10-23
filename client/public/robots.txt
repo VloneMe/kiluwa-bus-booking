@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /           # Allows all pages to be crawled
+Disallow: /admin/  # Blocks crawling of admin pages
+Disallow: /private/ # Blocks private routes
+Sitemap: https://kiluwaluxury.co.tz/sitemap.xml
