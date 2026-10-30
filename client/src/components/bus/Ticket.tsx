@@ -91,7 +91,7 @@ export const Ticket = ({ ticketid, non_input }: TicketProps) => {
 
     try {
       const response = await fetch(
-        `https://basipoa.co.tz/buspoa/website/Payment/getTicketJson/${ticketNumber}`
+        `${String(import.meta.env.VITE_API_TICKET ?? "").replace(/\/$/, "")}/${encodeURIComponent(ticketNumber)}`
       );
 
       if (!response.ok) {
