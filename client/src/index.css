@@ -3129,6 +3129,22 @@ html {
     border-color: color-mix(in oklch, var(--destructive) 30%, transparent);
   }
 
+  .bus-payment-expired__home {
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.5rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bus-payment-expired__home:hover {
+    background: var(--primary);
+    filter: brightness(1.15);
+  }
+
   .bus-payment-success__badge svg {
     width: 1.85rem;
     height: 1.85rem;

@@ -9,9 +9,9 @@ import {
   CheckCircle2,
   Copy,
   CreditCard,
+  Home,
   ListOrdered,
   Lock,
-  RefreshCw,
   Smartphone,
 } from "lucide-react";
 
@@ -568,28 +568,23 @@ const Payment = () => {
                             Muda wa malipo umekwisha
                           </h2>
                           <p className="bus-payment-success__text">
-                            Hukukamilisha malipo ndani ya dakika 5, kwa hiyo
-                            ukurasa huu umefungwa. Kama ulishalipa, bonyeza
-                            "Hakiki malipo". Vinginevyo, tafadhali weka tiketi upya.
+                            Samahani, malipo hayakukamilika ndani ya dakika 5,
+                            kwa hiyo ombi hili la tiketi limefungwa.
+                          </p>
+                          <p className="bus-payment-success__text mt-2">
+                            Kama ulishalipa, subiri kidogo kwenye ukurasa huu.
+                            Tiketi yako itaonekana hapa mara malipo
+                            yatakapothibitishwa.
                           </p>
                         </div>
-                        <div className="flex flex-wrap justify-center gap-3">
-                          <Button
-                            type="button"
-                            variant="outline"
-                            onClick={() => void handleRefresh()}
-                            disabled={refreshing}
-                          >
-                            <RefreshCw
-                              className={cn("h-4 w-4", refreshing && "animate-spin")}
-                              aria-hidden
-                            />
-                            {refreshing ? "Inasasisha…" : "Hakiki malipo"}
-                          </Button>
-                          <Button type="button" onClick={() => navigate("/")}>
-                            Weka tiketi upya
-                          </Button>
-                        </div>
+                        <Button
+                          type="button"
+                          className="bus-payment-expired__home"
+                          onClick={() => navigate("/")}
+                        >
+                          <Home className="h-4 w-4" aria-hidden />
+                          Rudi Nyumbani
+                        </Button>
                       </div>
                     ) : (
                       <>
