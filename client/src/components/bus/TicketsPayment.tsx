@@ -10,6 +10,7 @@ import {
   Copy,
   CreditCard,
   ListOrdered,
+  Lock,
   RefreshCw,
   Smartphone,
 } from "lucide-react";
@@ -38,15 +39,20 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
+/** How long the customer has to complete payment, in seconds (5 minutes). */
+const PAYMENT_WINDOW_SECONDS = 300;
+const deadlineKey = (id: string) => `payment_deadline_${id}`;
+
 const Payment = () => {
   const [ticketData, setTicketData] = useState<TicketData | null>(null);
   const [loading, setLoading] = useState(false);
   const [openModalMethod, setOpenModalMethod] = useState<string | null>(null);
-  const [timeLeft, setTimeLeft] = useState(900);
+  const [timeLeft, setTimeLeft] = useState(PAYMENT_WINDOW_SECONDS);
   const [isPaid, setIsPaid] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
+  const isExpired = !isPaid && timeLeft <= 0;
 
   const [copiedItem, setCopiedItem] = useState<
     "business" | "reference" | "amount" | null
@@ -89,6 +95,7 @@ const Payment = () => {
   };
 
   const handleCopy = async (type: "business" | "reference" | "amount") => {
+    if (isExpired) return;
     let textToCopy = "";
     switch (type) {
       case "business":
@@ -153,7 +160,7 @@ const Payment = () => {
       setIsPaid(data.booking_type === "PAID");
 
       if (data.booking_type === "CANCELLED") {
-        localStorage.removeItem(`timer_${id}`);
+        localStorage.removeItem(deadlineKey(id));
         navigate("/transactionfailed", { replace: true });
       }
     } catch (error) {
@@ -172,37 +179,42 @@ const Payment = () => {
     return () => clearInterval(interval);
   }, [fetchTicketData, isPaid]);
 
+  // Payment deadline: persisted per booking so a page refresh cannot reset it.
   useEffect(() => {
     if (!id || isPaid) return;
 
-    const timerKey = `timer_${id}`;
-    const savedEndTime = localStorage.getItem(timerKey);
-    const endTime = savedEndTime
-      ? parseInt(savedEndTime, 10)
-      : Date.now() + 900000;
+    const key = deadlineKey(id);
+    // Drop the deadline written by the old 15-minute timer.
+    localStorage.removeItem(`timer_${id}`);
 
-    if (!savedEndTime) {
-      localStorage.setItem(timerKey, String(endTime));
-    }
+    const maxEndTime = Date.now() + PAYMENT_WINDOW_SECONDS * 1000;
+    const saved = parseInt(localStorage.getItem(key) ?? "", 10);
+    // Never allow a stored deadline to exceed the 5-minute window.
+    const endTime = Number.isFinite(saved) ? Math.min(saved, maxEndTime) : maxEndTime;
+    localStorage.setItem(key, String(endTime));
 
     const updateTimer = () => {
-      const remaining = Math.max(
-        0,
-        Math.floor((endTime - Date.now()) / 1000)
-      );
+      const remaining = Math.max(0, Math.ceil((endTime - Date.now()) / 1000));
       setTimeLeft(remaining);
+      return remaining;
     };
 
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
-
-    return () => {
-      clearInterval(interval);
-      if (isPaid) {
-        localStorage.removeItem(timerKey);
-      }
-    };
+    if (updateTimer() === 0) return;
+    const interval = setInterval(() => {
+      if (updateTimer() === 0) clearInterval(interval);
+    }, 1000);
+    return () => clearInterval(interval);
   }, [id, isPaid]);
+
+  // Once paid, the deadline is no longer needed.
+  useEffect(() => {
+    if (id && isPaid) localStorage.removeItem(deadlineKey(id));
+  }, [id, isPaid]);
+
+  // Lock the page when the time is over: close any open payment dialog.
+  useEffect(() => {
+    if (isExpired) setOpenModalMethod(null);
+  }, [isExpired]);
 
   const fetchPaymentToken = async (): Promise<string | null> => {
     try {
@@ -224,7 +236,7 @@ const Payment = () => {
   };
 
   const submitAzamPush: SubmitHandler<FormData> = async (data) => {
-    if (!ticketData) return;
+    if (!ticketData || isExpired) return;
 
     setLoading(true);
     try {
@@ -268,7 +280,7 @@ const Payment = () => {
   };
 
   const submitUbxPush: SubmitHandler<FormData> = async (data) => {
-    if (!ticketData) return;
+    if (!ticketData || isExpired) return;
 
     setLoading(true);
     try {
@@ -354,6 +366,10 @@ const Payment = () => {
   };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    if (isExpired) {
+      showErrorToast("Muda wa malipo umekwisha. Tafadhali weka tiketi upya.");
+      return;
+    }
     // Use one push provider at a time, configured by env (no user choice).
     return useUbxPush ? submitUbxPush(data) : submitAzamPush(data);
   };
@@ -538,6 +554,43 @@ const Payment = () => {
                         </div>
                         <Ticket ticketid={ticketData.id_no} non_input />
                       </div>
+                    ) : isExpired ? (
+                      <div
+                        className="bus-payment-success bus-payment-expired"
+                        role="alert"
+                        aria-live="assertive"
+                      >
+                        <div className="bus-payment-success__badge" aria-hidden>
+                          <Lock />
+                        </div>
+                        <div>
+                          <h2 className="bus-payment-success__title">
+                            Muda wa malipo umekwisha
+                          </h2>
+                          <p className="bus-payment-success__text">
+                            Hukukamilisha malipo ndani ya dakika 5, kwa hiyo
+                            ukurasa huu umefungwa. Kama ulishalipa, bonyeza
+                            "Hakiki malipo". Vinginevyo, tafadhali weka tiketi upya.
+                          </p>
+                        </div>
+                        <div className="flex flex-wrap justify-center gap-3">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => void handleRefresh()}
+                            disabled={refreshing}
+                          >
+                            <RefreshCw
+                              className={cn("h-4 w-4", refreshing && "animate-spin")}
+                              aria-hidden
+                            />
+                            {refreshing ? "Inasasisha…" : "Hakiki malipo"}
+                          </Button>
+                          <Button type="button" onClick={() => navigate("/")}>
+                            Weka tiketi upya
+                          </Button>
+                        </div>
+                      </div>
                     ) : (
                       <>
                         <p className="bus-payment-summary__label">
@@ -697,7 +750,7 @@ const Payment = () => {
         )}
       </Section>
 
-      {activeMethod && (
+      {activeMethod && !isExpired && (
         <Modal
           open={!!openModalMethod}
           onOpenChange={(open) => {

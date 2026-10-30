@@ -3123,6 +3123,12 @@ html {
     border: 1px solid color-mix(in oklch, #15803d 28%, transparent);
   }
 
+  .bus-payment-expired .bus-payment-success__badge {
+    background: color-mix(in oklch, var(--destructive) 12%, transparent);
+    color: var(--destructive);
+    border-color: color-mix(in oklch, var(--destructive) 30%, transparent);
+  }
+
   .bus-payment-success__badge svg {
     width: 1.85rem;
     height: 1.85rem;
